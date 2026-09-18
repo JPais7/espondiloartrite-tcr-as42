@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "reference": "data/raw/7N2O.pdb chain F",
+  "fixed_backbone_models": [
+    {
+      "id": "AS4_2_F98Y_fixed_backbone",
+      "path": "data/counterfactuals/AS4_2_F98Y_fixed_backbone.pdb",
+      "mutation": "F:F98Y",
+      "method": "7N2S Y98 side chain transferred after beta-framework Kabsch alignment",
+      "sha256": "3c1dcb81905ee04ff3c17ef314918ba71f6a2c6e7b3774a52ff5d831de919db1"
+    },
+    {
+      "id": "AS4_2_F98A_fixed_backbone",
+      "path": "data/counterfactuals/AS4_2_F98A_fixed_backbone.pdb",
+      "mutation": "F:F98A",
+      "method": "side-chain truncation to alanine; no relaxation",
+      "sha256": "eb0e60029803d8e19be2d017c1295f44a0bfc4ceb62815a5b4f267006e2f1067"
+    },
+    {
+      "id": "AS4_2_S99A_fixed_backbone",
+      "path": "data/counterfactuals/AS4_2_S99A_fixed_backbone.pdb",
+      "mutation": "F:S99A",
+      "method": "side-chain truncation to alanine; no relaxation",
+      "sha256": "b9fb93fbadb4585779dfc8949e7e8ef840b682447404978143ecdc1a5ede1a5f"
+    },
+    {
+      "id": "AS4_2_T100A_fixed_backbone",
+      "path": "data/counterfactuals/AS4_2_T100A_fixed_backbone.pdb",
+      "mutation": "F:T100A",
+      "method": "side-chain truncation to alanine; no relaxation",
+      "sha256": "86d3fb50217a069ee1530f971d7248e154699a965ff2dcc7698e0e0193725382"
+    },
+    {
+      "id": "AS4_2_D101A_fixed_backbone",
+      "path": "data/counterfactuals/AS4_2_D101A_fixed_backbone.pdb",
+      "mutation": "F:D101A",
+      "method": "side-chain truncation to alanine; no relaxation",
+      "sha256": "c32b903de7768bbad629a636d25f35b0592109a3ee871a6ef999225a12542c8b"
+    }
+  ],
+  "natural_motif_counterfactuals": [
+    {
+      "id": "VGLYSTDTQ",
+      "pdbid": "7N2S",
+      "chain": "F",
+      "residues": "95-103"
+    },
+    {
+      "id": "VGTYSTDTQ",
+      "pdbid": "8CX4",
+      "chain": "F",
+      "residues": "95-103"
+    },
+    {
+      "id": "PATYSTDTQ_9PBG",
+      "pdbid": "9PBG",
+      "chain": "E",
+      "residues": "95-103"
+    },
+    {
+      "id": "PATYSTDTQ_9PBH",
+      "pdbid": "9PBH",
+      "chain": "E",
+      "residues": "95-103"
+    }
+  ],
+  "limitations": [
+    "No side-chain repacking or energy minimization was performed.",
+    "Point-mutant models are suitable only for residue-dependence perturbation tests.",
+    "Natural replacements use experimental structures and retain their observed conformations."
+  ]
+}

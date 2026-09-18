@@ -7,6 +7,6 @@ S99A,alanine_scan,TRAV21,TRBV9,VGLFATDTQ,Tests dependence on Ser99,in_silico_mod
 T100A,alanine_scan,TRAV21,TRBV9,VGLFSATDQ,Tests dependence on Thr100,in_silico_model_required
 D101A,alanine_scan,TRAV21,TRBV9,VGLFSTADQ,Tests dependence on Asp101,in_silico_model_required
 Q103A,alanine_scan,TRAV21,TRBV9,VGLFSTDTA,Tests dependence on Gln103,in_silico_model_required
-same_v_genes_unrelated_cdr3,hard_negative,TRAV21,TRBV9,TBD,Separates clonotype recognition from germline-segment recognition,repertoire sequence required
-same_trbv9_other_alpha,medium_negative,TBD,TRBV9,TBD,Tests excessive TRBV9 dependence,repertoire sequence required
-unrelated_tcr,easy_negative,TBD,TBD,TBD,General nonspecific-binding baseline,repertoire sequence required
+same_v_genes_unrelated_cdr3,hard_negative,TRAV21,TRBV9,TBD,Separates clonotype recognition from germline-segment recognition,obsolete_placeholder_superseded_by_phase1_5_panel
+same_trbv9_other_alpha,medium_negative,TBD,TRBV9,TBD,Tests excessive TRBV9 dependence,obsolete_placeholder_superseded_by_phase1_5_panel
+unrelated_tcr,easy_negative,TBD,TBD,TBD,General nonspecific-binding baseline,obsolete_placeholder_superseded_by_phase1_5_panel

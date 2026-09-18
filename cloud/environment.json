@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "smoke_test_platform": "macOS-26.6.2-arm64",
+  "cloud_target": {
+    "os": "Ubuntu 24.04 container",
+    "cuda_base": "nvidia/cuda:12.8.1-cudnn-runtime-ubuntu24.04",
+    "python": "3.12",
+    "gpu": "one NVIDIA A100 80 GB or H100 80 GB",
+    "minimum_system_ram_gb": 96,
+    "minimum_free_disk_gb": 40
+  },
+  "packages": {
+    "rc-foundry": "0.0.1.dev1185+ga24335323",
+    "foundry_git_commit": "a24335323b8fe8a927319d47b10f5bffffc17969",
+    "torch": "2.14.0",
+    "atomworks": "2.2.1",
+    "biotite": "1.4.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6"
+  },
+  "full_smoke_lock": "cloud/environment-smoke-lock.txt",
+  "model_manifest": "cloud/model_manifest.json"
+}

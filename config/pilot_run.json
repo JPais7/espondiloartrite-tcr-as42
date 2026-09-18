@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generation": {
+    "method": "RFdiffusion3",
+    "n_batches": 2,
+    "diffusion_batch_size": 4,
+    "maximum_backbones": 8,
+    "binder_length_range": "55-75",
+    "step_scale": 3.0,
+    "gamma_0": 0.2,
+    "seed": 42017
+  },
+  "sequence_design": {
+    "method": "ProteinMPNN v_48_020",
+    "sequences_per_backbone": 3,
+    "sampling_temperature": 0.1,
+    "maximum_total_candidates": 24,
+    "seed": 42018
+  },
+  "validation": {
+    "method": "RoseTTAFold3",
+    "replicate_seeds": [42017, 42018, 42019],
+    "targets": ["7N2O", "7N2N"],
+    "mandatory_negatives": ["7N2S", "8CX4", "9PBG", "9PBH"],
+    "counterfactuals": ["F98Y", "F98A", "S99A", "T100A", "D101A"]
+  }
+}

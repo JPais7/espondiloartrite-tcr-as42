@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "objective": "Test predicted selectivity for AS4.2 VGLFSTDTQ over the strongest known human TCR structural mimics; target affinity alone is not an objective.",
+  "positives": [
+    {"pdbid": "7N2O", "alpha_chain": "D", "beta_chain": "F", "role": "reference"},
+    {"pdbid": "7N2N", "alpha_chain": "D", "beta_chain": "F", "role": "required conformational replicate"}
+  ],
+  "mandatory_negatives": [
+    {"pdbid": "7N2S", "beta_chain": "F", "core": "VGLYSTDTQ"},
+    {"pdbid": "8CX4", "beta_chain": "F", "core": "VGTYSTDTQ"},
+    {"pdbid": "9PBG", "beta_chain": "E", "core": "PATYSTDTQ"},
+    {"pdbid": "9PBH", "beta_chain": "E", "core": "PATYSTDTQ"}
+  ],
+  "secondary_negatives": ["7N2P", "7N2Q", "8RYP", "8RYQ", "5KS9", "5KSA", "9J4S", "6ZKW", "9YIR"],
+  "target_cdr3beta": {
+    "chain": "F",
+    "full_sequence": "CASSVGLFSTDTQYF",
+    "full_residues": "91-105",
+    "core_sequence": "VGLFSTDTQ",
+    "core_residues": [95, 96, 97, 98, 99, 100, 101, 102, 103],
+    "required_hotspot_residues": [98, 99, 100, 101],
+    "required_primary_anchor": 98
+  },
+  "germline_contact_penalty": {
+    "alpha_chain": "D",
+    "beta_chain": "F",
+    "definition": "All target-chain residues outside beta CDR3 residues F91-F105; contacts to these residues count as germline/framework contribution for this pilot.",
+    "maximum_fraction_of_target_contacts": 0.40
+  },
+  "counterfactual_manifest": "data/counterfactuals/manifest.json",
+  "panel_audit": "results/pilot/panel_audit.json"
+}

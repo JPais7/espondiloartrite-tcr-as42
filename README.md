@@ -6,6 +6,8 @@ Validar, com baixo custo e antes de gerar proteínas, se o TCR AS4.2 apresenta u
 
 Estado atual: **Phase 1.5 completa; NO-GO para iniciar agora uma campanha de binders contra a família ampla.** Os controlos humanos realistas revelam miméticos estruturais difíceis, incluindo 8CX4 (`VGTYSTDTQ`) e 9PBG/9PBH (`PATYSTDTQ`), com geometria local semelhante à região AS4.2. Ver [PHASE1_5_REPORT.md](PHASE1_5_REPORT.md) e [GO_NO_GO_PHASE1_5.md](GO_NO_GO_PHASE1_5.md).
 
+Continuação: foi pré-registado um piloto mínimo de negative design, mas a execução cloud **não foi lançada**. O desenho e os thresholds estão em [PILOT_DESIGN_SPEC.md](PILOT_DESIGN_SPEC.md); o pacote e orçamento cloud estão em [CLOUD_RUN_PLAN.md](CLOUD_RUN_PLAN.md). Os outputs locais RFD3/ProteinMPNN/RF3 são apenas smoke tests e estão excluídos da decisão científica.
+
 Decisão final da Phase 1: [GO_NO_GO.md](GO_NO_GO.md). Decisão atualizada da Phase 1.5: [GO_NO_GO_PHASE1_5.md](GO_NO_GO_PHASE1_5.md). Em resumo, a superfície é acessível, mas não suficientemente distintiva perante negativos humanos realistas; qualquer avanço deve ser apenas um piloto pequeno de negative design, não uma campanha ampla.
 
 ## Reprodutibilidade

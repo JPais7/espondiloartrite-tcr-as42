@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "foundry_source": "https://github.com/fnachon/foundry.git",
+  "foundry_commit": "a24335323b8fe8a927319d47b10f5bffffc17969",
+  "models": [
+    {
+      "name": "rfd3",
+      "filename": "rfd3_latest.ckpt",
+      "url": "https://files.ipd.uw.edu/pub/rfd3/rfd3_foundry_2025_12_01_remapped.ckpt",
+      "sha256": "9b3f85923e0d51e9453e15cdd2f8c666e7ce096a60577f57d11bbc54ae6d67c1"
+    },
+    {
+      "name": "proteinmpnn",
+      "filename": "proteinmpnn_v_48_020.pt",
+      "url": "https://files.ipd.uw.edu/pub/ligandmpnn/proteinmpnn_v_48_020.pt",
+      "sha256": "c9cb4a671d79604111231f8dbfc7c590e06f1197453b7a6854ac6661a642f5bd"
+    },
+    {
+      "name": "rf3",
+      "filename": "rf3_foundry_01_24_latest_remapped.ckpt",
+      "url": "https://files.ipd.uw.edu/pub/rf3/rf3_foundry_01_24_latest_remapped.ckpt",
+      "sha256": "364ef592fd8042a9cf4176d045015190f8322f961ccca38d891b20ca578d3bb0"
+    }
+  ]
+}

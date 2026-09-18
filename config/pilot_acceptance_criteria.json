@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "frozen_before_generation": true,
+  "candidate_count_cap": 24,
+  "random_seeds": [42017, 42018, 42019],
+  "required": {
+    "positive_complexes_structurally_plausible": ["7N2O", "7N2N"],
+    "minimum_distinct_core_residues_contacted": 4,
+    "must_contact_residue_F98": true,
+    "minimum_additional_hotspot_residues_contacted": 2,
+    "maximum_germline_contact_fraction": 0.40,
+    "mandatory_negative_panel": ["7N2S", "8CX4", "9PBG", "9PBH"],
+    "minimum_target_vs_worst_negative_margin_sigma": 2.0,
+    "minimum_positive_replicate_margin_sigma": 0.0,
+    "minimum_F98Y_loss_sigma": 1.0,
+    "minimum_F98A_loss_sigma": 2.0,
+    "minimum_two_of_S99A_T100A_D101A_loss_sigma": 1.0,
+    "hotspot_mutation_survival_is_rejection": true
+  },
+  "generation_pose_prefilter": {
+    "heavy_atom_contact_cutoff_A": 4.5,
+    "minimum_binder_length": 55,
+    "maximum_binder_length": 75,
+    "minimum_binder_sequence_shannon_entropy_bits": 2.5,
+    "maximum_single_amino_acid_fraction": 0.30,
+    "reject_noncanonical_residues": true
+  },
+  "uncertainty": {
+    "rule": "Estimate per-candidate score uncertainty from independent seeds/model replicates and positive-conformer variability; compare all margins to the propagated standard error. A raw score difference without an uncertainty estimate cannot pass.",
+    "minimum_independent_score_replicates": 3,
+    "decision_metric": "lower 95% confidence bound of target minus worst-negative selectivity margin",
+    "pass_condition": "lower 95% confidence bound > 0 and standardized margin >= 2.0"
+  },
+  "rf3_metrics": {
+    "selectivity_quality_Q": "iptm - mean(binder_to_alpha_chain_pair_PAE_min, binder_to_beta_chain_pair_PAE_min) / 31.0",
+    "absolute_positive_thresholds": {
+      "minimum_iptm": 0.60,
+      "minimum_binder_chain_ptm": 0.70,
+      "maximum_best_binder_target_chain_pair_PAE_min_A": 5.0,
+      "has_clash": false
+    },
+    "raw_effect_floors": {
+      "minimum_Q_loss_F98Y": 0.05,
+      "minimum_Q_loss_F98A": 0.10,
+      "minimum_Q_loss_for_two_of_S99A_T100A_D101A": 0.05,
+      "minimum_Q_margin_vs_each_mandatory_negative": 0.10
+    },
+    "effective_uncertainty": "For every pairwise delta, sigma_eff is max(propagated standard error across three independent seeds, half the absolute 7N2O-vs-7N2N Q difference, 0.02).",
+    "confidence_rule": "Every required raw effect must also exceed 2*sigma_eff; multiplicity is handled as an intersection rule, so every mandatory negative must pass."
+  },
+  "automatic_rejection": [
+    "Any required structure or counterfactual is missing or fails provenance audit.",
+    "Interface is dominated by contacts outside beta CDR3.",
+    "Candidate fails on either AS4.2 experimental conformer.",
+    "Worst mandatory-negative separation is not larger than scoring uncertainty.",
+    "Predicted interaction survives F98A or broad hotspot alanine perturbation.",
+    "Complex confidence or monomer-fold confidence is below the selected model's preregistered threshold."
+  ]
+}

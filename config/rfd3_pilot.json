@@ -1,0 +1,25 @@
+{
+  "as42_negative_design_pilot": {
+    "dialect": 2,
+    "input": "../data/pilot/7N2O_AS4_2_variable_domains.pdb",
+    "contig": "55-75,/0,D2-110,/0,F3-110",
+    "infer_ori_strategy": "hotspots",
+    "is_non_loopy": true,
+    "redesign_motif_sidechains": false,
+    "select_hotspots": {
+      "F98": "CB,CG,CD1,CD2,CE1,CE2,CZ",
+      "F99": "CB,OG",
+      "F100": "CB,CG2,OG1",
+      "F101": "CB,CG,OD1,OD2"
+    },
+    "select_hbond_donor": {
+      "F99": "OG",
+      "F100": "OG1"
+    },
+    "select_hbond_acceptor": {
+      "F99": "OG",
+      "F100": "OG1",
+      "F101": "OD1,OD2"
+    }
+  }
+}

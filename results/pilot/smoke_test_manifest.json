@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "purpose": "Pipeline execution smoke test only; excluded from scientific candidate ranking and GO/NO-GO evidence.",
+  "local_hardware": "Apple Silicon, 16 GB unified memory, MPS float32",
+  "generation": {
+    "rfd3_backbones": 1,
+    "seed": 42017,
+    "elapsed_seconds": 454.5,
+    "output_dir": "results/pilot/rfd3_smoke"
+  },
+  "sequence_design": {
+    "proteinmpnn_sequences": 3,
+    "seed": 42018,
+    "output_dir": "results/pilot/mpnn_smoke",
+    "generation_pose_prefilter_passed": 0,
+    "generation_pose_prefilter_evaluated": 3,
+    "common_rejection_reasons": [
+      "single amino-acid enrichment",
+      "only three core CDR3beta residues contacted",
+      "insufficient additional hotspot contacts",
+      "germline/framework contact fraction 0.5556"
+    ]
+  },
+  "validation": {
+    "rf3_inputs": 1,
+    "diffusion_samples": 3,
+    "seed": 42019,
+    "output_dir": "results/pilot/rf3_smoke",
+    "observed_iptm_range": [0.272338330745697, 0.2778162956237793],
+    "interpretation": "Low target-complex confidence, but not a scientific result because this was an unblinded local pipeline test and no negative panel was evaluated."
+  },
+  "excluded_from_decision": true
+}

@@ -1,0 +1,585 @@
+{
+  "schema_version": 1,
+  "panel_path": "data/phase1_5_negative_controls.csv",
+  "panel_sha256": "a3748c127ec09194df2e05f7a83e43fc2e100cd1d1c7c4b1dab67249dc4407b5",
+  "entries": [
+    {
+      "pdbid": "7N2O",
+      "category": "positive",
+      "pdb_sha256": "93c2b695b82d669a57b12cd2ab716abc3378a1dd44d7c25c125fe7da258bd4dd",
+      "rcsb_url": "https://www.rcsb.org/structure/7N2O",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVLSPVQETSGSRLTF",
+            "observed_cdr3": "CAVLSPVQETSGSRLTF",
+            "resolved_start": 91,
+            "resolved_end": 107,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "F",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVGLFSTDTQYF",
+            "observed_cdr3": "CASSVGLFSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "7N2N",
+      "category": "positive_replicate",
+      "pdb_sha256": "de97d5e7de4264a18a0b84feb3a7674e49cf4cfcd5785d7b81a8250f44c19647",
+      "rcsb_url": "https://www.rcsb.org/structure/7N2N",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVLSPVQETSGSRLTF",
+            "observed_cdr3": "CAVLSPVQETSGSRLTF",
+            "resolved_start": 91,
+            "resolved_end": 107,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "F",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVGLFSTDTQYF",
+            "observed_cdr3": "CASSVGLFSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "7N2P",
+      "category": "natural_near_negative",
+      "pdb_sha256": "fe5da1a333426f76b14f0a7507280a2e1107c9c0779a202b343dbdccbd309e05",
+      "rcsb_url": "https://www.rcsb.org/structure/7N2P",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVSNFNKFYF",
+            "observed_cdr3": "CAVSNFNKFYF",
+            "resolved_start": 91,
+            "resolved_end": 101,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "F",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVATYSTDTQYF",
+            "observed_cdr3": "CASSVATYSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "7N2Q",
+      "category": "natural_near_negative",
+      "pdb_sha256": "0622c908e101dac8d9126507e5f808b815e8519ca00b016fffa0a7e29e964c11",
+      "rcsb_url": "https://www.rcsb.org/structure/7N2Q",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVSNFNKFYF",
+            "observed_cdr3": "CAVSNFNKFYF",
+            "resolved_start": 91,
+            "resolved_end": 101,
+            "exact_sequence_match": true
+          },
+          {
+            "chain": "E",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVSNFNKFYF",
+            "observed_cdr3": "CAVSNFNKFYF",
+            "resolved_start": 91,
+            "resolved_end": 101,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "F",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVATYSTDTQYF",
+            "observed_cdr3": "CASSVATYSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          },
+          {
+            "chain": "G",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVATYSTDTQYF",
+            "observed_cdr3": "CASSVATYSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "7N2S",
+      "category": "natural_near_negative",
+      "pdb_sha256": "19a951ba4d587ff35bbe04da6231cc7d5fe48cde7985351b1dab7b822be2a81c",
+      "rcsb_url": "https://www.rcsb.org/structure/7N2S",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVSLGTGAGSYQLTF",
+            "observed_cdr3": "CAVSLGTGAGSYQLTF",
+            "resolved_start": 91,
+            "resolved_end": 106,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "F",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVGLYSTDTQYF",
+            "observed_cdr3": "CASSVGLYSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "8CX4",
+      "category": "near_motif_negative",
+      "pdb_sha256": "ef130631f6e5c12b2566482fba6e26f62a5c856d4d0be65d5ac5039107f2df1d",
+      "rcsb_url": "https://www.rcsb.org/structure/8CX4",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVNSPGSGAGSYQLTF",
+            "observed_cdr3": "CAVNSPGSGAGSYQLTF",
+            "resolved_start": 91,
+            "resolved_end": 107,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "F",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVGTYSTDTQYF",
+            "observed_cdr3": "CASSVGTYSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "9PBG",
+      "category": "near_motif_negative",
+      "pdb_sha256": "ac206348aca1f125fe1ad99bea3f0a970dc757a48041f60313612162356c294f",
+      "rcsb_url": "https://www.rcsb.org/structure/9PBG",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CGIALIGSGAGSYQLTF",
+            "observed_cdr3": "CGIALIGSGAGSYQLTF",
+            "resolved_start": 91,
+            "resolved_end": 107,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "E",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSPATYSTDTQYF",
+            "observed_cdr3": "CASSPATYSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "9PBH",
+      "category": "near_motif_negative",
+      "pdb_sha256": "fd92b72554fc7eff6afafedba27104e1a5f0dfc34e18e9da3a3b9f689e7880dc",
+      "rcsb_url": "https://www.rcsb.org/structure/9PBH",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CGIALIGSGAGSYQLTF",
+            "observed_cdr3": "CGIALIGSGAGSYQLTF",
+            "resolved_start": 91,
+            "resolved_end": 107,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "E",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSPATYSTDTQYF",
+            "observed_cdr3": "CASSPATYSTDTQYF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "8RYP",
+      "category": "germline_hard_negative",
+      "pdb_sha256": "a22723db6f862eb620e4fde05742ffa6c9ceb483a812be20e2a09048921fe7c7",
+      "rcsb_url": "https://www.rcsb.org/structure/8RYP",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVRQRGSQGNLIF",
+            "observed_cdr3": "CAVRQRGSQGNLIF",
+            "resolved_start": 91,
+            "resolved_end": 104,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "E",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSPGGGHNEQFF",
+            "observed_cdr3": "CASSPGGGHNEQFF",
+            "resolved_start": 92,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "8RYQ",
+      "category": "germline_hard_negative",
+      "pdb_sha256": "10420f0c73f579b934934585a585180c906e6dd93a728636d3bfa952a416d53a",
+      "rcsb_url": "https://www.rcsb.org/structure/8RYQ",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVRQWGSLGNLIF",
+            "observed_cdr3": "CAVRQWGSLGNLIF",
+            "resolved_start": 91,
+            "resolved_end": 104,
+            "exact_sequence_match": true
+          },
+          {
+            "chain": "I",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVRQWGSLGNLIF",
+            "observed_cdr3": "CAVRQWGSLGNLIF",
+            "resolved_start": 91,
+            "resolved_end": 104,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "E",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSPGGGHNEQFF",
+            "observed_cdr3": "CASSPGGGHNEQFF",
+            "resolved_start": 92,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          },
+          {
+            "chain": "J",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSPGGGHNEQFF",
+            "observed_cdr3": "CASSPGGGHNEQFF",
+            "resolved_start": 92,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "5KS9",
+      "category": "trbv9_alt_alpha_negative",
+      "pdb_sha256": "00bc5a84dcdb1ebc498eee5ed3b48c0029d4fba298201961252338bd2682ff9e",
+      "rcsb_url": "https://www.rcsb.org/structure/5KS9",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "E",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVALNNNAGNMLTF",
+            "observed_cdr3": "CAVALNNNAGNMLTF",
+            "resolved_start": 104,
+            "resolved_end": 118,
+            "exact_sequence_match": true
+          },
+          {
+            "chain": "G",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVALNNNAGNMLTF",
+            "observed_cdr3": "CAVALNNNAGNMLTF",
+            "resolved_start": 104,
+            "resolved_end": 118,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "F",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVAPGSDTQYF",
+            "observed_cdr3": "CASSVAPGSDTQYF",
+            "resolved_start": 104,
+            "resolved_end": 118,
+            "exact_sequence_match": true
+          },
+          {
+            "chain": "H",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVAPGSDTQYF",
+            "observed_cdr3": "CASSVAPGSDTQYF",
+            "resolved_start": 104,
+            "resolved_end": 118,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "5KSA",
+      "category": "trbv9_alt_alpha_negative",
+      "pdb_sha256": "a5441fb574eacdceaa285cd0842cf152c5c8abfb939142f57cf992771460ca56",
+      "rcsb_url": "https://www.rcsb.org/structure/5KSA",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "C",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVQFMDSNYQLIW",
+            "observed_cdr3": "CAVQFMDSNYQLIW",
+            "resolved_start": 104,
+            "resolved_end": 118,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVAGTPSYEQYF",
+            "observed_cdr3": "CASSVAGTPSYEQYF",
+            "resolved_start": 104,
+            "resolved_end": 118,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "9J4S",
+      "category": "trbv9_alt_alpha_negative",
+      "pdb_sha256": "4cdc520bd5114464f4dae984ad128006ac226d2a6b87d6da8dbcde68d0901368",
+      "rcsb_url": "https://www.rcsb.org/structure/9J4S",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "B",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVRDYNNARLMF",
+            "observed_cdr3": "CAVRDYNNARLMF",
+            "resolved_start": 91,
+            "resolved_end": 103,
+            "exact_sequence_match": true
+          },
+          {
+            "chain": "I",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVRDYNNARLMF",
+            "observed_cdr3": "CAVRDYNNARLMF",
+            "resolved_start": 91,
+            "resolved_end": 103,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "A",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVSGGAYNEQFF",
+            "observed_cdr3": "CASSVSGGAYNEQFF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          },
+          {
+            "chain": "G",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSVSGGAYNEQFF",
+            "observed_cdr3": "CASSVSGGAYNEQFF",
+            "resolved_start": 91,
+            "resolved_end": 105,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "6ZKW",
+      "category": "trav21_alt_beta_negative",
+      "pdb_sha256": "3a1c38cd921b881243e2dc9080f394f3f011ffae07aaf11150e96f0722d5c77b",
+      "rcsb_url": "https://www.rcsb.org/structure/6ZKW",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "D",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVTNQAGTALIF",
+            "observed_cdr3": "CAVTNQAGTALIF",
+            "resolved_start": 104,
+            "resolved_end": 118,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "E",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSYSIRGSRGEQFF",
+            "observed_cdr3": "CASSYSIRGSRGEQFF",
+            "resolved_start": 104,
+            "resolved_end": 118,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "pdbid": "9YIR",
+      "category": "trav21_alt_beta_negative",
+      "pdb_sha256": "06a0785f3d412e80e7efb43eee3441759b4b4d6354226e6d1466912eadee7d73",
+      "rcsb_url": "https://www.rcsb.org/structure/9YIR",
+      "tcr3d_alpha_url": "https://tcr3d.ibbr.umd.edu/tcra",
+      "tcr3d_beta_url": "https://tcr3d.ibbr.umd.edu/tcrb",
+      "chains": {
+        "alpha": [
+          {
+            "chain": "A",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CAVDTGGFKTIF",
+            "observed_cdr3": "CAVDTGGFKTIF",
+            "resolved_start": 89,
+            "resolved_end": 100,
+            "exact_sequence_match": true
+          }
+        ],
+        "beta": [
+          {
+            "chain": "B",
+            "declared_tcr_in_pdb_header": true,
+            "declared_cdr3": "CASSSGDGNYGYTF",
+            "observed_cdr3": "CASSSGDGNYGYTF",
+            "resolved_start": 89,
+            "resolved_end": 102,
+            "exact_sequence_match": true
+          }
+        ]
+      },
+      "status": "pass"
+    }
+  ],
+  "summary": {
+    "entry_count": 15,
+    "pass_count": 15,
+    "fail_count": 0,
+    "legacy_TBD_controls_marked_obsolete": [
+      "same_v_genes_unrelated_cdr3",
+      "same_trbv9_other_alpha",
+      "unrelated_tcr"
+    ]
+  },
+  "scope_note": "Resolved-chain/CDR3 identity is verified from PDB ATOM records; gene calls are provenance assertions from stored TCR3d records, not independently re-inferred."
+}
