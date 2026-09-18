@@ -2,9 +2,9 @@
   "schema_version": 1,
   "generation": {
     "method": "RFdiffusion3",
-    "n_batches": 2,
+    "n_batches": 1,
     "diffusion_batch_size": 4,
-    "maximum_backbones": 8,
+    "maximum_backbones": 4,
     "binder_length_range": "55-75",
     "step_scale": 3.0,
     "gamma_0": 0.2,

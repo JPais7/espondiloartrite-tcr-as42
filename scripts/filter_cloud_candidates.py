@@ -47,12 +47,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--glob", default="results/pilot/cloud/mpnn/*.cif")
     ap.add_argument("--out", type=Path, default=Path("results/pilot/cloud/generation_prefilter.csv"))
+    ap.add_argument("--passed-out", type=Path, default=Path("results/pilot/cloud/prefilter_passed.txt"))
     args = ap.parse_args()
     cfg = json.load(open("config/pilot_acceptance_criteria.json"))
     p = cfg["generation_pose_prefilter"]
     req = cfg["required"]
     rows = []
-    for name in sorted(glob.glob(args.glob)):
+    names = sorted(glob.glob(args.glob))
+    if len(names) > 12:
+        raise SystemExit(f"candidate cap exceeded: found {len(names)}, maximum is 12")
+    for name in names:
         arr = load_structure(name)
         _, seq = residue_sequence(arr, "A")
         contacts = contact_residues(arr, p["heavy_atom_contact_cutoff_A"])
@@ -79,6 +83,8 @@ def main():
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=rows[0].keys() if rows else ["candidate"]); w.writeheader(); w.writerows(rows)
+    args.passed_out.parent.mkdir(parents=True, exist_ok=True)
+    args.passed_out.write_text("".join(row["candidate"] + "\n" for row in rows if row["pass"]))
     print(json.dumps({"evaluated":len(rows),"passed":sum(r["pass"] for r in rows)}))
 
 

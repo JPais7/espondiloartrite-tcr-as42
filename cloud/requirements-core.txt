@@ -1,0 +1,6 @@
+torch==2.14.0
+atomworks==2.2.1
+biotite==1.4.0
+numpy==2.5.3
+scipy==1.18.1
+pandas==3.0.6
