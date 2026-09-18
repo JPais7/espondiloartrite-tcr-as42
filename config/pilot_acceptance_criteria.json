@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "frozen_before_generation": true,
-  "candidate_count_cap": 24,
+  "candidate_count_cap": 12,
   "random_seeds": [42017, 42018, 42019],
   "required": {
     "positive_complexes_structurally_plausible": ["7N2O", "7N2N"],

@@ -14,7 +14,7 @@
     "method": "ProteinMPNN v_48_020",
     "sequences_per_backbone": 3,
     "sampling_temperature": 0.1,
-    "maximum_total_candidates": 24,
+    "maximum_total_candidates": 12,
     "seed": 42018
   },
   "validation": {
