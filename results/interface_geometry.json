@@ -1,0 +1,266 @@
+{
+  "7N2O": {
+    "pdb": "7N2O",
+    "key_residue_accessible_area_A2": {
+      "98": 131.34,
+      "99": 38.75,
+      "100": 74.54,
+      "101": 45.0
+    },
+    "pairwise_geometry": {
+      "98-99": {
+        "surface_centroid_distance_A": 7.41,
+        "outward_normal_angle_deg": 12.5
+      },
+      "98-100": {
+        "surface_centroid_distance_A": 6.87,
+        "outward_normal_angle_deg": 11.6
+      },
+      "98-101": {
+        "surface_centroid_distance_A": 7.17,
+        "outward_normal_angle_deg": 5.8
+      },
+      "99-100": {
+        "surface_centroid_distance_A": 6.22,
+        "outward_normal_angle_deg": 10.5
+      },
+      "99-101": {
+        "surface_centroid_distance_A": 9.96,
+        "outward_normal_angle_deg": 14.4
+      },
+      "100-101": {
+        "surface_centroid_distance_A": 6.93,
+        "outward_normal_angle_deg": 8.5
+      }
+    },
+    "footprint_radius_A": 12.0,
+    "footprint_total_A2": 840.54,
+    "cdr3beta_core_fraction": 0.556,
+    "F98_S99_T100_D101_fraction": 0.345,
+    "alpha_chain_fraction": 0.198,
+    "top_footprint_residues": [
+      {
+        "chain": "F",
+        "resseq": 98,
+        "residue": "F",
+        "area_A2": 131.34
+      },
+      {
+        "chain": "F",
+        "resseq": 97,
+        "residue": "L",
+        "area_A2": 83.98
+      },
+      {
+        "chain": "F",
+        "resseq": 100,
+        "residue": "T",
+        "area_A2": 74.54
+      },
+      {
+        "chain": "F",
+        "resseq": 95,
+        "residue": "V",
+        "area_A2": 68.08
+      },
+      {
+        "chain": "F",
+        "resseq": 50,
+        "residue": "Y",
+        "area_A2": 50.66
+      },
+      {
+        "chain": "F",
+        "resseq": 101,
+        "residue": "D",
+        "area_A2": 45.0
+      },
+      {
+        "chain": "D",
+        "resseq": 101,
+        "residue": "S",
+        "area_A2": 41.35
+      },
+      {
+        "chain": "F",
+        "resseq": 99,
+        "residue": "S",
+        "area_A2": 38.75
+      },
+      {
+        "chain": "D",
+        "resseq": 32,
+        "residue": "Y",
+        "area_A2": 36.4
+      },
+      {
+        "chain": "F",
+        "resseq": 30,
+        "residue": "L",
+        "area_A2": 35.73
+      },
+      {
+        "chain": "D",
+        "resseq": 52,
+        "residue": "Q",
+        "area_A2": 34.14
+      },
+      {
+        "chain": "F",
+        "resseq": 55,
+        "residue": "R",
+        "area_A2": 31.27
+      },
+      {
+        "chain": "F",
+        "resseq": 104,
+        "residue": "Y",
+        "area_A2": 26.18
+      },
+      {
+        "chain": "D",
+        "resseq": 103,
+        "residue": "S",
+        "area_A2": 25.47
+      },
+      {
+        "chain": "F",
+        "resseq": 28,
+        "residue": "G",
+        "area_A2": 19.68
+      }
+    ]
+  },
+  "7N2N": {
+    "pdb": "7N2N",
+    "key_residue_accessible_area_A2": {
+      "98": 144.75,
+      "99": 38.69,
+      "100": 83.17,
+      "101": 65.34
+    },
+    "pairwise_geometry": {
+      "98-99": {
+        "surface_centroid_distance_A": 7.72,
+        "outward_normal_angle_deg": 13.3
+      },
+      "98-100": {
+        "surface_centroid_distance_A": 7.15,
+        "outward_normal_angle_deg": 12.3
+      },
+      "98-101": {
+        "surface_centroid_distance_A": 7.58,
+        "outward_normal_angle_deg": 8.4
+      },
+      "99-100": {
+        "surface_centroid_distance_A": 6.45,
+        "outward_normal_angle_deg": 11.3
+      },
+      "99-101": {
+        "surface_centroid_distance_A": 10.53,
+        "outward_normal_angle_deg": 17.3
+      },
+      "100-101": {
+        "surface_centroid_distance_A": 6.97,
+        "outward_normal_angle_deg": 9.5
+      }
+    },
+    "footprint_radius_A": 12.0,
+    "footprint_total_A2": 835.85,
+    "cdr3beta_core_fraction": 0.587,
+    "F98_S99_T100_D101_fraction": 0.397,
+    "alpha_chain_fraction": 0.148,
+    "top_footprint_residues": [
+      {
+        "chain": "F",
+        "resseq": 98,
+        "residue": "F",
+        "area_A2": 144.75
+      },
+      {
+        "chain": "F",
+        "resseq": 100,
+        "residue": "T",
+        "area_A2": 83.17
+      },
+      {
+        "chain": "F",
+        "resseq": 97,
+        "residue": "L",
+        "area_A2": 73.43
+      },
+      {
+        "chain": "F",
+        "resseq": 101,
+        "residue": "D",
+        "area_A2": 65.34
+      },
+      {
+        "chain": "F",
+        "resseq": 95,
+        "residue": "V",
+        "area_A2": 64.19
+      },
+      {
+        "chain": "F",
+        "resseq": 50,
+        "residue": "Y",
+        "area_A2": 55.09
+      },
+      {
+        "chain": "F",
+        "resseq": 55,
+        "residue": "R",
+        "area_A2": 51.25
+      },
+      {
+        "chain": "D",
+        "resseq": 32,
+        "residue": "Y",
+        "area_A2": 40.18
+      },
+      {
+        "chain": "F",
+        "resseq": 99,
+        "residue": "S",
+        "area_A2": 38.69
+      },
+      {
+        "chain": "F",
+        "resseq": 30,
+        "residue": "L",
+        "area_A2": 35.22
+      },
+      {
+        "chain": "D",
+        "resseq": 52,
+        "residue": "Q",
+        "area_A2": 25.14
+      },
+      {
+        "chain": "D",
+        "resseq": 94,
+        "residue": "L",
+        "area_A2": 24.15
+      },
+      {
+        "chain": "D",
+        "resseq": 103,
+        "residue": "S",
+        "area_A2": 22.87
+      },
+      {
+        "chain": "F",
+        "resseq": 28,
+        "residue": "G",
+        "area_A2": 20.58
+      },
+      {
+        "chain": "F",
+        "resseq": 33,
+        "residue": "Y",
+        "area_A2": 14.93
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+pdb,tcr,residue_98,sidechain_SASA_A2,aromatic_ring_SASA_A2,tyr_OH_SASA_A2,shared_sidechain_atom_RMSD_vs_7N2O_A,tyr_OH_to_7N2O_Phe_CZ_A,mean_sidechain_B_factor_A2
+7N2O,AS4.2,PHE,114.6,114.47,0,0.0,,40.22
+7N2N,AS4.2,PHE,123.78,122.02,0,0.63,,26.75
+7N2P,AS4.3,TYR,132.92,80.76,51.79,0.72,1.974,32.61
+7N2Q,AS4.3,TYR,131.19,78.87,51.56,0.49,1.761,50.52
+7N2S,AS3.1,TYR,139.79,85.92,52.23,0.577,1.847,27.9

@@ -1,0 +1,107 @@
+{
+  "7N2O": {
+    "pdb": "7N2O",
+    "tcr": "AS4.2",
+    "cdr3beta_core": "VGLFSTDTQ",
+    "substitutions_vs_AS4.2": "none",
+    "framework_CA_RMSD_A": 0.0,
+    "core_CA_RMSD_A": 0.0,
+    "max_core_CA_displacement_A": 0.0,
+    "core_SASA_isolated_A2": 487.71,
+    "per_residue_CA_displacement_A": {
+      "95": 0.0,
+      "96": 0.0,
+      "97": 0.0,
+      "98": 0.0,
+      "99": 0.0,
+      "100": 0.0,
+      "101": 0.0,
+      "102": 0.0,
+      "103": 0.0
+    }
+  },
+  "7N2N": {
+    "pdb": "7N2N",
+    "tcr": "AS4.2",
+    "cdr3beta_core": "VGLFSTDTQ",
+    "substitutions_vs_AS4.2": "none",
+    "framework_CA_RMSD_A": 0.241,
+    "core_CA_RMSD_A": 0.501,
+    "max_core_CA_displacement_A": 0.767,
+    "core_SASA_isolated_A2": 509.76,
+    "per_residue_CA_displacement_A": {
+      "95": 0.432,
+      "96": 0.485,
+      "97": 0.767,
+      "98": 0.478,
+      "99": 0.436,
+      "100": 0.473,
+      "101": 0.504,
+      "102": 0.525,
+      "103": 0.277
+    }
+  },
+  "7N2P": {
+    "pdb": "7N2P",
+    "tcr": "AS4.3",
+    "cdr3beta_core": "VATYSTDTQ",
+    "substitutions_vs_AS4.2": "G96A;L97T;F98Y",
+    "framework_CA_RMSD_A": 0.261,
+    "core_CA_RMSD_A": 0.612,
+    "max_core_CA_displacement_A": 0.99,
+    "core_SASA_isolated_A2": 486.67,
+    "per_residue_CA_displacement_A": {
+      "95": 0.633,
+      "96": 0.529,
+      "97": 0.99,
+      "98": 0.303,
+      "99": 0.222,
+      "100": 0.621,
+      "101": 0.781,
+      "102": 0.659,
+      "103": 0.371
+    }
+  },
+  "7N2Q": {
+    "pdb": "7N2Q",
+    "tcr": "AS4.3",
+    "cdr3beta_core": "VATYSTDTQ",
+    "substitutions_vs_AS4.2": "G96A;L97T;F98Y",
+    "framework_CA_RMSD_A": 0.336,
+    "core_CA_RMSD_A": 0.597,
+    "max_core_CA_displacement_A": 0.993,
+    "core_SASA_isolated_A2": 504.75,
+    "per_residue_CA_displacement_A": {
+      "95": 0.626,
+      "96": 0.633,
+      "97": 0.993,
+      "98": 0.531,
+      "99": 0.44,
+      "100": 0.523,
+      "101": 0.527,
+      "102": 0.498,
+      "103": 0.393
+    }
+  },
+  "7N2S": {
+    "pdb": "7N2S",
+    "tcr": "AS3.1",
+    "cdr3beta_core": "VGLYSTDTQ",
+    "substitutions_vs_AS4.2": "F98Y",
+    "framework_CA_RMSD_A": 0.322,
+    "core_CA_RMSD_A": 0.639,
+    "max_core_CA_displacement_A": 0.843,
+    "core_SASA_isolated_A2": 487.47,
+    "per_residue_CA_displacement_A": {
+      "95": 0.605,
+      "96": 0.708,
+      "97": 0.843,
+      "98": 0.669,
+      "99": 0.737,
+      "100": 0.684,
+      "101": 0.581,
+      "102": 0.501,
+      "103": 0.225
+    }
+  }
+}

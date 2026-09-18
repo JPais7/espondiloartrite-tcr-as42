@@ -1,0 +1,443 @@
+{
+  "metadata": {
+    "sasa_sphere_points": 480,
+    "probe_radius_A": 1.4
+  },
+  "structures": {
+    "7N2O": {
+      "target_total_sasa_isolated_A2": 487.71,
+      "target_total_sasa_bound_A2": 180.31,
+      "candidate_patch_residues": [
+        {
+          "chain": "D",
+          "resseq": 32,
+          "residue": "Y",
+          "sasa_A2": 82.29,
+          "distance_to_motif_A": 3.47
+        },
+        {
+          "chain": "D",
+          "resseq": 46,
+          "residue": "T",
+          "sasa_A2": 69.92,
+          "distance_to_motif_A": 6.34
+        },
+        {
+          "chain": "D",
+          "resseq": 47,
+          "residue": "S",
+          "sasa_A2": 39.1,
+          "distance_to_motif_A": 3.23
+        },
+        {
+          "chain": "D",
+          "resseq": 48,
+          "residue": "L",
+          "sasa_A2": 44.66,
+          "distance_to_motif_A": 6.55
+        },
+        {
+          "chain": "D",
+          "resseq": 50,
+          "residue": "L",
+          "sasa_A2": 30.82,
+          "distance_to_motif_A": 3.44
+        },
+        {
+          "chain": "D",
+          "resseq": 52,
+          "residue": "Q",
+          "sasa_A2": 51.87,
+          "distance_to_motif_A": 3.21
+        },
+        {
+          "chain": "D",
+          "resseq": 53,
+          "residue": "S",
+          "sasa_A2": 35.82,
+          "distance_to_motif_A": 6.3
+        },
+        {
+          "chain": "D",
+          "resseq": 101,
+          "residue": "S",
+          "sasa_A2": 98.61,
+          "distance_to_motif_A": 7.07
+        },
+        {
+          "chain": "D",
+          "resseq": 103,
+          "residue": "S",
+          "sasa_A2": 29.94,
+          "distance_to_motif_A": 5.76
+        },
+        {
+          "chain": "D",
+          "resseq": 104,
+          "residue": "R",
+          "sasa_A2": 41.95,
+          "distance_to_motif_A": 5.94
+        },
+        {
+          "chain": "F",
+          "resseq": 26,
+          "residue": "R",
+          "sasa_A2": 70.65,
+          "distance_to_motif_A": 4.04
+        },
+        {
+          "chain": "F",
+          "resseq": 27,
+          "residue": "S",
+          "sasa_A2": 118.72,
+          "distance_to_motif_A": 7.23
+        },
+        {
+          "chain": "F",
+          "resseq": 28,
+          "residue": "G",
+          "sasa_A2": 60.67,
+          "distance_to_motif_A": 4.26
+        },
+        {
+          "chain": "F",
+          "resseq": 30,
+          "residue": "L",
+          "sasa_A2": 58.62,
+          "distance_to_motif_A": 3.07
+        },
+        {
+          "chain": "F",
+          "resseq": 49,
+          "residue": "Y",
+          "sasa_A2": 24.71,
+          "distance_to_motif_A": 6.36
+        },
+        {
+          "chain": "F",
+          "resseq": 50,
+          "residue": "Y",
+          "sasa_A2": 65.59,
+          "distance_to_motif_A": 3.89
+        },
+        {
+          "chain": "F",
+          "resseq": 51,
+          "residue": "N",
+          "sasa_A2": 96.76,
+          "distance_to_motif_A": 7.29
+        },
+        {
+          "chain": "F",
+          "resseq": 53,
+          "residue": "E",
+          "sasa_A2": 82.76,
+          "distance_to_motif_A": 6.13
+        },
+        {
+          "chain": "F",
+          "resseq": 54,
+          "residue": "E",
+          "sasa_A2": 88.65,
+          "distance_to_motif_A": 7.94
+        },
+        {
+          "chain": "F",
+          "resseq": 55,
+          "residue": "R",
+          "sasa_A2": 101.85,
+          "distance_to_motif_A": 3.38
+        },
+        {
+          "chain": "F",
+          "resseq": 72,
+          "residue": "L",
+          "sasa_A2": 40.0,
+          "distance_to_motif_A": 7.93
+        },
+        {
+          "chain": "F",
+          "resseq": 95,
+          "residue": "V",
+          "sasa_A2": 68.08,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 97,
+          "residue": "L",
+          "sasa_A2": 83.98,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 98,
+          "residue": "F",
+          "sasa_A2": 131.34,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 99,
+          "residue": "S",
+          "sasa_A2": 38.75,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 100,
+          "residue": "T",
+          "sasa_A2": 74.54,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 101,
+          "residue": "D",
+          "sasa_A2": 45.0,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 102,
+          "residue": "T",
+          "sasa_A2": 20.0,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 104,
+          "residue": "Y",
+          "sasa_A2": 93.88,
+          "distance_to_motif_A": 1.33
+        }
+      ]
+    },
+    "7N2N": {
+      "target_total_sasa_isolated_A2": 509.76,
+      "target_total_sasa_bound_A2": 207.1,
+      "candidate_patch_residues": [
+        {
+          "chain": "D",
+          "resseq": 32,
+          "residue": "Y",
+          "sasa_A2": 104.34,
+          "distance_to_motif_A": 3.72
+        },
+        {
+          "chain": "D",
+          "resseq": 46,
+          "residue": "T",
+          "sasa_A2": 78.06,
+          "distance_to_motif_A": 6.71
+        },
+        {
+          "chain": "D",
+          "resseq": 47,
+          "residue": "S",
+          "sasa_A2": 49.2,
+          "distance_to_motif_A": 3.63
+        },
+        {
+          "chain": "D",
+          "resseq": 48,
+          "residue": "L",
+          "sasa_A2": 38.88,
+          "distance_to_motif_A": 6.93
+        },
+        {
+          "chain": "D",
+          "resseq": 50,
+          "residue": "L",
+          "sasa_A2": 35.38,
+          "distance_to_motif_A": 3.34
+        },
+        {
+          "chain": "D",
+          "resseq": 52,
+          "residue": "Q",
+          "sasa_A2": 47.51,
+          "distance_to_motif_A": 3.22
+        },
+        {
+          "chain": "D",
+          "resseq": 53,
+          "residue": "S",
+          "sasa_A2": 28.22,
+          "distance_to_motif_A": 6.46
+        },
+        {
+          "chain": "D",
+          "resseq": 94,
+          "residue": "L",
+          "sasa_A2": 26.92,
+          "distance_to_motif_A": 4.0
+        },
+        {
+          "chain": "D",
+          "resseq": 103,
+          "residue": "S",
+          "sasa_A2": 35.42,
+          "distance_to_motif_A": 6.69
+        },
+        {
+          "chain": "D",
+          "resseq": 104,
+          "residue": "R",
+          "sasa_A2": 25.86,
+          "distance_to_motif_A": 5.78
+        },
+        {
+          "chain": "D",
+          "resseq": 106,
+          "residue": "T",
+          "sasa_A2": 26.82,
+          "distance_to_motif_A": 7.76
+        },
+        {
+          "chain": "F",
+          "resseq": 26,
+          "residue": "R",
+          "sasa_A2": 66.18,
+          "distance_to_motif_A": 3.9
+        },
+        {
+          "chain": "F",
+          "resseq": 27,
+          "residue": "S",
+          "sasa_A2": 126.38,
+          "distance_to_motif_A": 6.95
+        },
+        {
+          "chain": "F",
+          "resseq": 28,
+          "residue": "G",
+          "sasa_A2": 51.56,
+          "distance_to_motif_A": 4.1
+        },
+        {
+          "chain": "F",
+          "resseq": 30,
+          "residue": "L",
+          "sasa_A2": 50.32,
+          "distance_to_motif_A": 3.43
+        },
+        {
+          "chain": "F",
+          "resseq": 49,
+          "residue": "Y",
+          "sasa_A2": 22.76,
+          "distance_to_motif_A": 6.14
+        },
+        {
+          "chain": "F",
+          "resseq": 50,
+          "residue": "Y",
+          "sasa_A2": 69.64,
+          "distance_to_motif_A": 3.85
+        },
+        {
+          "chain": "F",
+          "resseq": 51,
+          "residue": "N",
+          "sasa_A2": 82.04,
+          "distance_to_motif_A": 6.71
+        },
+        {
+          "chain": "F",
+          "resseq": 53,
+          "residue": "E",
+          "sasa_A2": 128.91,
+          "distance_to_motif_A": 7.73
+        },
+        {
+          "chain": "F",
+          "resseq": 55,
+          "residue": "R",
+          "sasa_A2": 120.36,
+          "distance_to_motif_A": 3.51
+        },
+        {
+          "chain": "F",
+          "resseq": 72,
+          "residue": "L",
+          "sasa_A2": 37.49,
+          "distance_to_motif_A": 7.76
+        },
+        {
+          "chain": "F",
+          "resseq": 95,
+          "residue": "V",
+          "sasa_A2": 64.19,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 97,
+          "residue": "L",
+          "sasa_A2": 73.43,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 98,
+          "residue": "F",
+          "sasa_A2": 144.75,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 99,
+          "residue": "S",
+          "sasa_A2": 38.69,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 100,
+          "residue": "T",
+          "sasa_A2": 83.17,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 101,
+          "residue": "D",
+          "sasa_A2": 65.34,
+          "distance_to_motif_A": 0.0
+        },
+        {
+          "chain": "F",
+          "resseq": 104,
+          "residue": "Y",
+          "sasa_A2": 88.02,
+          "distance_to_motif_A": 1.33
+        },
+        {
+          "chain": "F",
+          "resseq": 105,
+          "residue": "F",
+          "sasa_A2": 22.79,
+          "distance_to_motif_A": 3.99
+        }
+      ]
+    }
+  },
+  "comparison": {
+    "alignment_chain": "F",
+    "framework_CA_count": 94,
+    "framework_CA_RMSD_A": 0.241,
+    "target_CA_RMSD_A": 0.501,
+    "target_per_residue_CA_displacement_A": {
+      "95": 0.432,
+      "96": 0.485,
+      "97": 0.767,
+      "98": 0.478,
+      "99": 0.436,
+      "100": 0.473,
+      "101": 0.504,
+      "102": 0.525,
+      "103": 0.277
+    }
+  }
+}

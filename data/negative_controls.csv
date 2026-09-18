@@ -1,0 +1,12 @@
+control_id,class,tr_alpha,tr_beta,cdr3beta_core,purpose,status
+AS4.2,target,TRAV21,TRBV9,VGLFSTDTQ,Reference target,experimental structures 7N2O and 7N2N
+AS4.1_or_AS3.1_like,natural_near_neighbor,TRAV21,TRBV9,VGLYSTDTQ,Single-residue aromatic near-neighbour in disease-associated motif,experimental AS3.1 structure 7N2S available; exact AS4.1 model still required
+AS4.3,natural_near_neighbor,TRAV21,TRBV9,VATYSTDTQ,Related disease-associated clonotype reported in same patient,experimental structures 7N2P 7N2Q and 7N2R available
+F98A,alanine_scan,TRAV21,TRBV9,VGLASTDTQ,Tests dependence on central aromatic residue,in_silico_model_required
+S99A,alanine_scan,TRAV21,TRBV9,VGLFATDTQ,Tests dependence on Ser99,in_silico_model_required
+T100A,alanine_scan,TRAV21,TRBV9,VGLFSATDQ,Tests dependence on Thr100,in_silico_model_required
+D101A,alanine_scan,TRAV21,TRBV9,VGLFSTADQ,Tests dependence on Asp101,in_silico_model_required
+Q103A,alanine_scan,TRAV21,TRBV9,VGLFSTDTA,Tests dependence on Gln103,in_silico_model_required
+same_v_genes_unrelated_cdr3,hard_negative,TRAV21,TRBV9,TBD,Separates clonotype recognition from germline-segment recognition,repertoire sequence required
+same_trbv9_other_alpha,medium_negative,TBD,TRBV9,TBD,Tests excessive TRBV9 dependence,repertoire sequence required
+unrelated_tcr,easy_negative,TBD,TBD,TBD,General nonspecific-binding baseline,repertoire sequence required
