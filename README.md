@@ -4,9 +4,41 @@
 
 Validar, com baixo custo e antes de gerar proteínas, se o TCR AS4.2 apresenta uma superfície estrutural suficientemente distinta e acessível para permitir o desenho de um ligante seletivo, avaliando simultaneamente os principais riscos de reação cruzada.
 
-Estado atual: **GO provisório apenas para completar a triagem estrutural barata; ainda não avançar para geração de binders.** Os controlos naturais próximos têm forma e área muito semelhantes ao AS4.2. Existe um possível gancho químico — o OH exposto de Y98 — mas a seletividade estrita exige uma cavidade que aceite F98 e penalize Y98. Ver [PHASE1_REPORT.md](PHASE1_REPORT.md).
+Estado atual: **Phase 1.5 completa; NO-GO para iniciar agora uma campanha de binders contra a família ampla.** Os controlos humanos realistas revelam miméticos estruturais difíceis, incluindo 8CX4 (`VGTYSTDTQ`) e 9PBG/9PBH (`PATYSTDTQ`), com geometria local semelhante à região AS4.2. Ver [PHASE1_5_REPORT.md](PHASE1_5_REPORT.md) e [GO_NO_GO_PHASE1_5.md](GO_NO_GO_PHASE1_5.md).
 
-Decisão final da fase estrutural: [GO_NO_GO.md](GO_NO_GO.md). Em resumo, AS4.2 estrito é NO-GO para campanha ampla; família Y/FSTDTQ é GO condicional.
+Decisão final da Phase 1: [GO_NO_GO.md](GO_NO_GO.md). Decisão atualizada da Phase 1.5: [GO_NO_GO_PHASE1_5.md](GO_NO_GO_PHASE1_5.md). Em resumo, a superfície é acessível, mas não suficientemente distintiva perante negativos humanos realistas; qualquer avanço deve ser apenas um piloto pequeno de negative design, não uma campanha ampla.
+
+## Reprodutibilidade
+
+Dependência Python:
+
+```text
+pip install -r requirements.txt
+```
+
+Auditoria Phase 1:
+
+```text
+python3 scripts/analyze_tcr_surface.py
+python3 scripts/compare_natural_controls.py
+python3 scripts/analyze_hotspot_chemistry.py
+python3 scripts/analyze_interface_geometry.py
+```
+
+Phase 1.5:
+
+```text
+python3 scripts/build_phase1_5_panel.py
+python3 scripts/analyze_phase1_5_negatives.py
+```
+
+Outputs principais:
+
+- `data/phase1_5_negative_controls.csv`
+- `data/provenance/tcr3d_alpha_records.json`
+- `data/provenance/tcr3d_beta_records.json`
+- `results/phase1_5/negative_control_comparison.csv`
+- `results/phase1_5/negative_control_comparison.json`
 
 ## Nota operacional: armazenamento e cloud
 

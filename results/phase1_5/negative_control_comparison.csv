@@ -1,0 +1,16 @@
+pdbid,category,alpha_gene,beta_gene,alpha_chain_used,beta_chain_used,beta_cdr3,derived_beta_core,best_9mer_vs_AS4.2_core,best_9mer_identity_to_AS4.2,has_STDTQ_tail_in_best_9mer,has_F_or_Y_at_AS4.2_F98_equivalent,framework_CA_count,framework_CA_RMSD_vs_7N2O_A,best_9mer_CA_RMSD_vs_AS4.2_core_A,beta_CDR3_SASA_isolated_A2,best_9mer_SASA_isolated_A2,rcsb_url
+7N2O,positive,TRAV21,TRBV9,D,F,CASSVGLFSTDTQYF,VGLFSTDTQ,VGLFSTDTQ,1.0,True,True,94,0.0,0.0,597.19,487.71,https://www.rcsb.org/structure/7N2O
+7N2N,positive_replicate,TRAV21,TRBV9,D,F,CASSVGLFSTDTQYF,VGLFSTDTQ,VGLFSTDTQ,1.0,True,True,94,0.241,0.501,627.86,509.76,https://www.rcsb.org/structure/7N2N
+7N2P,natural_near_negative,TRAV21,TRBV9,D,F,CASSVATYSTDTQYF,VATYSTDTQ,VATYSTDTQ,0.667,True,True,94,0.261,0.612,594.14,486.67,https://www.rcsb.org/structure/7N2P
+7N2Q,natural_near_negative,TRAV21,TRBV9,D,F,CASSVATYSTDTQYF,VATYSTDTQ,VATYSTDTQ,0.667,True,True,93,0.336,0.597,617.51,504.75,https://www.rcsb.org/structure/7N2Q
+7N2S,natural_near_negative,TRAV21,TRBV9,D,F,CASSVGLYSTDTQYF,VGLYSTDTQ,VGLYSTDTQ,0.889,True,True,94,0.322,0.639,597.01,487.47,https://www.rcsb.org/structure/7N2S
+8CX4,near_motif_negative,TRAV21,TRBV9,D,F,CASSVGTYSTDTQYF,VGTYSTDTQ,VGTYSTDTQ,0.778,True,True,94,0.284,0.512,581.05,460.18,https://www.rcsb.org/structure/8CX4
+9PBG,near_motif_negative,TRAV21,TRBV9,D,E,CASSPATYSTDTQYF,PATYSTDTQ,PATYSTDTQ,0.556,True,True,94,0.235,0.47,579.08,459.84,https://www.rcsb.org/structure/9PBG
+9PBH,near_motif_negative,TRAV21,TRBV9,D,E,CASSPATYSTDTQYF,PATYSTDTQ,PATYSTDTQ,0.556,True,True,94,0.273,0.433,553.29,445.06,https://www.rcsb.org/structure/9PBH
+8RYP,germline_hard_negative,TRAV21,TRBV9,D,E,CASSPGGGHNEQFF,PGGGHNEQ,PGGGHNEQ,,False,False,93,3.767,,437.66,339.45,https://www.rcsb.org/structure/8RYP
+8RYQ,germline_hard_negative,TRAV21,TRBV9,D,E,CASSPGGGHNEQFF,PGGGHNEQ,PGGGHNEQ,,False,False,93,3.797,,442.49,341.98,https://www.rcsb.org/structure/8RYQ
+5KS9,trbv9_alt_alpha_negative,TRAV20,TRBV9,E,F,CASSVAPGSDTQYF,VAPGSDTQ,VAPGSDTQ,,False,False,81,13.878,,376.94,278.8,https://www.rcsb.org/structure/5KS9
+5KSA,trbv9_alt_alpha_negative,TRAV20,TRBV9,C,D,CASSVAGTPSYEQYF,VAGTPSYEQ,VAGTPSYEQ,0.222,False,False,81,13.873,8.084,497.24,399.57,https://www.rcsb.org/structure/5KSA
+9J4S,trbv9_alt_alpha_negative,TRAV3,TRBV9,B,A,CASSVSGGAYNEQFF,VSGGAYNEQ,VSGGAYNEQ,0.222,False,False,93,0.821,1.355,479.86,418.44,https://www.rcsb.org/structure/9J4S
+6ZKW,trav21_alt_beta_negative,TRAV21,TRBV6-5,D,E,CASSYSIRGSRGEQFF,YSIRGSRGEQ,SIRGSRGEQ,0.222,False,False,81,13.892,6.964,699.32,492.38,https://www.rcsb.org/structure/6ZKW
+9YIR,trav21_alt_beta_negative,TRAV21,TRBV27,A,B,CASSSGDGNYGYTF,GDGNYGY,GDGNYGY,,False,False,94,6.58,,439.06,360.93,https://www.rcsb.org/structure/9YIR
