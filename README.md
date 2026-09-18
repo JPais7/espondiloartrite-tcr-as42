@@ -2,11 +2,15 @@
 
 ## Objetivo ativo
 
-Validar, com baixo custo e antes de gerar proteínas, se o TCR AS4.2 apresenta uma superfície estrutural suficientemente distinta e acessível para permitir o desenho de um ligante seletivo, avaliando simultaneamente os principais riscos de reação cruzada.
+Executar um piloto computacional mínimo e pré-registado de *negative design* para testar se é possível desenhar um binder de novo que reconheça seletivamente o TCR AS4.2, com foco no motivo CDR3β `VGLFSTDTQ`, distinguindo-o dos TCRs humanos estruturalmente mais semelhantes.
 
-Estado atual: **Phase 1.5 completa; NO-GO para iniciar agora uma campanha de binders contra a família ampla.** Os controlos humanos realistas revelam miméticos estruturais difíceis, incluindo 8CX4 (`VGTYSTDTQ`) e 9PBG/9PBH (`PATYSTDTQ`), com geometria local semelhante à região AS4.2. Ver [PHASE1_5_REPORT.md](PHASE1_5_REPORT.md) e [GO_NO_GO_PHASE1_5.md](GO_NO_GO_PHASE1_5.md).
+Estado atual: **Phase 1 e Phase 1.5 completas; NO-GO para uma campanha ampla de geração de binders.** Os controlos humanos realistas revelaram miméticos estruturais difíceis: 7N2S (`VGLYSTDTQ`), 8CX4 (`VGTYSTDTQ`) e 9PBG/9PBH (`PATYSTDTQ`). Ver [PHASE1_5_REPORT.md](PHASE1_5_REPORT.md) e [GO_NO_GO_PHASE1_5.md](GO_NO_GO_PHASE1_5.md).
 
-Continuação: foi pré-registado um piloto mínimo de negative design, mas a execução cloud **não foi lançada**. O desenho e os thresholds estão em [PILOT_DESIGN_SPEC.md](PILOT_DESIGN_SPEC.md); o pacote e orçamento cloud estão em [CLOUD_RUN_PLAN.md](CLOUD_RUN_PLAN.md). Os outputs locais RFD3/ProteinMPNN/RF3 são apenas smoke tests e estão excluídos da decisão científica.
+O piloto mínimo está pré-registado e congelado em [PILOT_DESIGN_SPEC.md](PILOT_DESIGN_SPEC.md), com quatro backbones RFD3, três sequências ProteinMPNN por backbone e um máximo de 12 candidatos científicos. O objetivo não é maximizar afinidade prevista isoladamente, mas procurar separação de AS4.2 face aos negativos e contrafactuais obrigatórios por uma margem superior à incerteza do método.
+
+Os outputs RFD3/ProteinMPNN/RF3 produzidos localmente foram **apenas smoke tests do pipeline**. Estão excluídos do ranking científico e da decisão GO/NO-GO; os três designs locais falharam os filtros pré-registados e não são candidatos a binder.
+
+O próximo passo de execução é exclusivamente o **Stage 0 numa GPU cloud**, após autorização explícita do utilizador. O Stage 0 valida CUDA, checkpoints, inputs, ambiente e reprodutibilidade com um único backbone descartável e termina sem iniciar o piloto científico. O plano e o comando de execução estão em [CLOUD_RUN_PLAN.md](CLOUD_RUN_PLAN.md) e [PRE_CLOUD_AUDIT.md](PRE_CLOUD_AUDIT.md). Nenhum recurso cloud pago foi lançado durante a preparação ou auditoria.
 
 Decisão final da Phase 1: [GO_NO_GO.md](GO_NO_GO.md). Decisão atualizada da Phase 1.5: [GO_NO_GO_PHASE1_5.md](GO_NO_GO_PHASE1_5.md). Em resumo, a superfície é acessível, mas não suficientemente distintiva perante negativos humanos realistas; qualquer avanço deve ser apenas um piloto pequeno de negative design, não uma campanha ampla.
 
@@ -44,41 +48,6 @@ Outputs principais:
 
 ## Nota operacional: armazenamento e cloud
 
-Para a fase inicial de validacao estrutural, nao e necessario alugar armazenamento na cloud. Esta fase deve ser feita localmente, porque envolve ficheiros pequenos: estruturas PDB/mmCIF, alinhamentos, medicoes de acessibilidade, analise de interfaces, figuras e resultados leves.
+O repositório, os inputs, os manifests e as análises leves permanecem locais. Não é necessário contratar armazenamento cloud permanente para o piloto. A execução autorizada deverá usar uma instância efémera com uma GPU NVIDIA A100/H100 de 80 GB, pelo menos 96 GB de RAM e 40 GB de disco livre, preservando apenas os resultados, logs, hashes e metadados de reprodução.
 
-Recomendacao pratica para comecar:
-
-- Trabalhar localmente.
-- Manter cerca de 5-20 GB livres para ficheiros, resultados e iteracoes leves.
-- Organizar desde cedo as pastas e os criterios de retencao, para evitar acumular lixo computacional.
-
-So faz sentido usar cloud quando o projeto passar para geracao ou avaliacao em lote, por exemplo:
-
-- RFdiffusion / BindCraft com muitas tentativas.
-- ColabFold / AlphaFold em lote para candidatos.
-- Triagens grandes contra muitos negativos ou repertorios TCR.
-- Simulacoes MD ou qualquer workflow que gere muitas trajetorias/intermedios.
-
-Nessa fase, a melhor estrategia nao e "alugar espaco" isoladamente, mas sim alugar uma instancia com GPU/CPU e disco temporario rapido, correr os jobs, e depois guardar apenas os outputs importantes num bucket barato.
-
-Estimativa de armazenamento:
-
-- Fase barata/local: poucos MB a algumas centenas de MB; 5-20 GB livres e confortavel.
-- Campanha real de design: apontar para 200-500 GB livres, idealmente em disco rapido.
-- MD longa ou datasets grandes: pode subir para centenas de GB ou TB.
-
-Politica de retencao recomendada:
-
-- Guardar estruturas finais dos melhores candidatos.
-- Guardar configs, seeds, versoes de parametros e rankings.
-- Guardar metricas resumidas e logs essenciais.
-- Apagar outputs intermedios volumosos que possam ser regenerados.
-
-Risco principal da cloud:
-
-- O armazenamento costuma ser barato.
-- O custo real aparece em GPUs deixadas ligadas, grandes volumes de outputs intermedios, e transferencias repetidas de dados.
-
-Decisao atual:
-
-Comecar localmente. Passar para cloud apenas quando houver um lote claro de geracao/avaliacao em GPU, com regras de limpeza e arquivo ja definidas.
+O Stage 0 é o único passo atualmente preparado para execução. Não existe transição automática para Stage 1: os seus logs e outputs têm de ser inspecionados por uma pessoa antes de qualquer nova autorização. GPUs deixadas ativas depois do teste continuam a ser o principal risco de custo.

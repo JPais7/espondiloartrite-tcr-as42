@@ -60,7 +60,23 @@ The exact checkpoint URLs and SHA-256 digests are in `cloud/model_manifest.json`
 
 ### Stage 0 — cloud smoke check
 
-Run the panel audit and input preparation, then generate **one** RFD3 backbone at batch size 1. Confirm CUDA execution and compare output schema with the local smoke run. This output is discarded. Stop if hashes, chain order, hotspot annotations or output schema differ.
+Run `cloud/run_stage0.sh` inside the pinned container. It performs the static package audit, requires CUDA, verifies all checkpoint hashes, records provenance and generates **exactly one** disposable RFD3 backbone at batch size 1. It records elapsed time and peak observed GPU memory, validates the output chains/schema, then stops. It cannot invoke sequence design, RF3, `run_generation.sh` or `run_validation.sh`.
+
+On an already provisioned and explicitly authorized GPU host, from the repository root, the exact launch sequence is:
+
+```bash
+export PILOT_CHECKPOINT_DIR=/absolute/path/to/checkpoints
+export STAGE0_RUN_ID="stage0-$(date -u +%Y%m%dT%H%M%SZ)"
+docker build --build-arg PILOT_GIT_COMMIT="$(git rev-parse HEAD)" -f cloud/Dockerfile -t as42-pilot:stage0 .
+export PILOT_CONTAINER_DIGEST="$(docker image inspect as42-pilot:stage0 --format '{{.Id}}')"
+docker run --rm --gpus all --ipc=host \
+  -e STAGE0_RUN_ID -e PILOT_CONTAINER_DIGEST \
+  -v "$PWD:/workspace" \
+  -v "$PILOT_CHECKPOINT_DIR:/checkpoints:ro" \
+  as42-pilot:stage0 bash cloud/run_stage0.sh
+```
+
+The checkpoint directory must contain the three files named in `cloud/checksums.sha256`. Stage 0 output is not a scientific candidate and must never enter ranking. A successful stop does not authorize Stage 1.
 
 ### Stage 1 — generation: 12 candidates maximum
 
@@ -143,7 +159,8 @@ Estimated wall time, including a calibration margin:
 | Work | H100 80 GB | A100 80 GB |
 |---|---:|---:|
 | setup, image, weights, hash checks | 0.5–1.0 h | 0.5–1.0 h |
-| cloud smoke + 4 RFD3 backbones + MPNN | 0.5–1.0 h | 1–2 h |
+| Stage 0 only: one disposable RFD3 backbone | 0.15–0.5 h | 0.25–0.75 h |
+| Stage 1: 4 RFD3 backbones + MPNN | 0.5–1.0 h | 1–2 h |
 | ≤12 target screens | 0.5–1.5 h | 1–3 h |
 | ≤66 focused RF3 predictions | 3–6 h | 6–12 h |
 | total reserved time | **5–10 h** | **9–18 h** |
@@ -165,11 +182,12 @@ Budget ceiling for authorization should be **$40 compute plus $5 storage/egress 
 3. Verify every SHA-256 digest.
 4. Record `nvidia-smi`, container digest, package freeze and Git commit.
 5. Run Stage 0 only; record peak VRAM and elapsed time.
-6. If Stage 0 matches the package schema, run `cloud/run_generation.sh` once.
-7. Apply the automatic filters; write `top2.txt` without manual candidate substitution.
-8. Run `cloud/run_validation.sh` once.
-9. Copy all logs, CIFs, JSON/CSV metrics and environment records back to the repository.
-10. Terminate the cloud instance.
-11. Produce `PILOT_RESULTS.md`, machine-readable rankings and `PILOT_GO_NO_GO.md` from the frozen rules.
+6. Stop. Copy and inspect every Stage 0 provenance file, the full RFD3 log, output validation result, elapsed time and peak VRAM.
+7. Obtain separate explicit human authorization for Stage 1. Only then may `cloud/run_generation.sh` be run once.
+8. Apply the automatic filters; write `top2.txt` without manual candidate substitution.
+9. Run `cloud/run_validation.sh` once.
+10. Copy all logs, CIFs, JSON/CSV metrics and environment records back to the repository.
+11. Terminate the cloud instance.
+12. Produce `PILOT_RESULTS.md`, machine-readable rankings and `PILOT_GO_NO_GO.md` from the frozen rules.
 
 No cloud resource has been created or started by preparation of this plan.
