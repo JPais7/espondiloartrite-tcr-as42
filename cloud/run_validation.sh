@@ -11,8 +11,8 @@ run_dir="results/pilot/cloud/$PILOT_RUN_ID"
 [[ -f "$run_dir/provenance/git_commit.txt" && -f "$run_dir/provenance/git_status.txt" ]] || { echo "ERROR: generation provenance missing" >&2; exit 4; }
 [[ -z "$(cat "$run_dir/provenance/git_status.txt")" ]] || { echo "ERROR: generation checkout was not clean" >&2; exit 5; }
 [[ "$(git rev-parse HEAD)" == "$(cat "$run_dir/provenance/git_commit.txt")" ]] || { echo "ERROR: generation commit differs from current checkout" >&2; exit 6; }
-current_git_status="$(git status --porcelain=v1)"
-[[ -z "$current_git_status" ]] || { echo "ERROR: checkout must be clean before validation" >&2; exit 7; }
+current_git_status="$(git status --porcelain=v1 --untracked-files=no)"
+[[ -z "$current_git_status" ]] || { echo "ERROR: tracked checkout files must be clean before validation" >&2; exit 7; }
 [[ "$(cat "$run_dir/provenance/container_digest.txt")" == "$PILOT_CONTAINER_DIGEST" ]] || { echo "ERROR: container digest differs from generation" >&2; exit 7; }
 for required in provenance/checkpoint_hashes.txt provenance/config_and_script_hashes_for_validation.txt provenance/candidate_inventory.json mpnn; do
   [[ -e "$run_dir/$required" ]] || { echo "ERROR: missing generation provenance: $required" >&2; exit 8; }

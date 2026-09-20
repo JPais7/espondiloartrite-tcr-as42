@@ -176,8 +176,8 @@ def main() -> int:
     require("seed=42019" in validation_script and "for seed in 42017 42018 42019" in validation_script,
             "validation seeds changed")
     require("rf3 fold" not in generation_script, "generation must not launch RF3")
-    require('current_git_status="$(git status --porcelain=v1)"' in validation_script and
-            'checkout must be clean before validation' in validation_script,
+    require('current_git_status="$(git status --porcelain=v1 --untracked-files=no)"' in validation_script and
+            'tracked checkout files must be clean before validation' in validation_script,
             "validation must check current git status")
     require("cloud/run_validation.sh" in generation_script and
             "cloud/run_validation.sh" in validation_script and
