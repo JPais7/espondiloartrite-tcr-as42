@@ -22,7 +22,7 @@ foundry list-installed > "$run_dir/provenance/foundry_installed.txt" 2>&1
 nvidia-smi -q > "$run_dir/provenance/nvidia-smi-q.txt"
 (cd "$FOUNDRY_CHECKPOINT_DIRS" && sha256sum -c /workspace/cloud/checksums.sha256) > "$run_dir/provenance/checkpoint_hashes.txt"
 sha256sum config/*.json > "$run_dir/provenance/config_hashes.txt"
-sha256sum cloud/run_generation.sh cloud/verify_runtime.sh scripts/filter_cloud_candidates.py scripts/select_cloud_top2.py scripts/prepare_cloud_validation_complexes.py > "$run_dir/provenance/execution_script_hashes.txt"
+sha256sum cloud/run_generation.sh cloud/run_validation.sh cloud/verify_runtime.sh scripts/filter_cloud_candidates.py scripts/select_cloud_top2.py scripts/prepare_cloud_validation_complexes.py cloud/checksums.sha256 cloud/model_manifest.json cloud/environment.json > "$run_dir/provenance/execution_script_hashes.txt"
 
 python scripts/audit_phase1_5_panel.py > "$run_dir/logs/panel_audit.log"
 python scripts/build_counterfactuals.py > "$run_dir/logs/counterfactuals.log"
@@ -49,5 +49,5 @@ manifest = {"run_id": run.name, "candidate_count": len(files), "candidates": [{"
 (run / "provenance/candidate_inventory.json").write_text(json.dumps(manifest, indent=2) + "\n")
 PY
 
-sha256sum config/*.json cloud/run_generation.sh cloud/verify_runtime.sh scripts/filter_cloud_candidates.py scripts/select_cloud_top2.py scripts/prepare_cloud_validation_complexes.py > "$run_dir/provenance/config_and_script_hashes_for_validation.txt"
+sha256sum config/*.json cloud/run_generation.sh cloud/run_validation.sh cloud/verify_runtime.sh scripts/filter_cloud_candidates.py scripts/select_cloud_top2.py scripts/prepare_cloud_validation_complexes.py cloud/checksums.sha256 cloud/model_manifest.json cloud/environment.json > "$run_dir/provenance/config_and_script_hashes_for_validation.txt"
 printf '%s\n' "PASS: generation complete; exactly 4 backbones and 12 candidates. Stage 2 validation requires a separate invocation." | tee "$run_dir/GENERATION_COMPLETE.txt"
