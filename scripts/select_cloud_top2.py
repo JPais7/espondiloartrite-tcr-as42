@@ -6,14 +6,20 @@ from __future__ import annotations
 import csv
 import glob
 import json
+import argparse
 from pathlib import Path
 
 
 def main():
-    pref = {r["candidate"]: r for r in csv.DictReader(open("results/pilot/cloud/generation_prefilter.csv"))}
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--prefilter", type=Path, default=Path("results/pilot/cloud/generation_prefilter.csv"))
+    ap.add_argument("--rf3-screen-dir", type=Path, default=Path("results/pilot/cloud/rf3_screen"))
+    ap.add_argument("--out", type=Path, default=Path("results/pilot/cloud/top2.txt"))
+    args = ap.parse_args()
+    pref = {r["candidate"]: r for r in csv.DictReader(args.prefilter.open())}
     cfg = json.load(open("config/pilot_acceptance_criteria.json"))["rf3_metrics"]["absolute_positive_thresholds"]
     eligible = []
-    for path in glob.glob("results/pilot/cloud/rf3_screen/**/*_summary_confidences.json", recursive=True):
+    for path in glob.glob(str(args.rf3_screen_dir / "**/*_summary_confidences.json"), recursive=True):
         # Ignore per-sample copies when an aggregate summary exists.
         if "/seed-" in path: continue
         d = json.load(open(path))
@@ -33,8 +39,8 @@ def main():
             eligible.append((q, candidates[0]))
     eligible.sort(reverse=True)
     selected = [p for _, p in eligible[:2]]
-    out = Path("results/pilot/cloud/top2.txt")
-    out.write_text("".join(p + "\n" for p in selected))
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text("".join(p + "\n" for p in selected))
     print(json.dumps({"eligible":len(eligible),"selected":selected}, indent=2))
 
 

@@ -85,7 +85,7 @@ The checkpoint directory must contain the three files named in `cloud/checksums.
 - Generate exactly **3 ProteinMPNN sequences per backbone**, seed `42018`, temperature 0.1.
 - Hard cap: **12 candidate sequences**. Do not replace failed designs or increase the batch.
 
-Command: `bash cloud/run_generation.sh`.
+After a separate authorization, set a unique `PILOT_RUN_ID` (for example `pilot-20260920T120000Z`) and the same immutable `PILOT_CONTAINER_DIGEST` used for Stage 0, then run `PILOT_RUN_ID=... PILOT_CONTAINER_DIGEST=... bash cloud/run_generation.sh`. All generation outputs and provenance are isolated under `results/pilot/cloud/<PILOT_RUN_ID>/`; the script refuses reuse of an existing run directory and writes `GENERATION_COMPLETE.txt` only after exactly 4 backbones and 12 candidates are inventoried and hashed.
 
 Before RF3, reject candidates mechanically for missing chains, backbone clashes, noncanonical residues, gross low complexity, or failure to contact F98 plus two additional preregistered residues in the generated pose. This is a filter, not evidence of binding.
 
@@ -105,7 +105,7 @@ For at most two survivors, prepare 11 states per candidate:
 
 Run each state with three independent RF3 seeds: `42017`, `42018`, `42019`, one diffusion sample per process. Maximum focused validation: **66 predictions**. Including the target-only screen, the complete scientific run contains at most 78 RF3 predictions.
 
-The structural states are built by `scripts/prepare_cloud_validation_complexes.py`. The exact commands are in `cloud/run_validation.sh`.
+The structural states are built by `scripts/prepare_cloud_validation_complexes.py`. With the same `PILOT_RUN_ID` and `PILOT_CONTAINER_DIGEST`, run `PILOT_RUN_ID=... PILOT_CONTAINER_DIGEST=... bash cloud/run_validation.sh`. Validation checks the generation marker, commit, digest, checkpoint/config/script hashes and candidate inventory before any RF3 work, and writes all outputs under that same run directory.
 
 ## Frozen scoring and uncertainty
 

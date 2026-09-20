@@ -54,6 +54,12 @@ No scientific threshold, candidate cap or decision rule was changed.
 
 The Stage 0 output lives under `results/pilot/stage0/<run-id>/`, is disposable and is excluded from scientific ranking.
 
+## Per-run Stage 1/2 isolation
+
+After separate authorization, Stage 1 requires a unique `PILOT_RUN_ID` and writes only to `results/pilot/cloud/<PILOT_RUN_ID>/`. It records the commit, clean-status evidence, container digest, package list, checkpoint/config/script hashes, exactly 4 RFD3 backbones and an SHA-256 inventory of exactly 12 candidate CIFs before writing `GENERATION_COMPLETE.txt`. It never starts RF3.
+
+Stage 2 requires the same `PILOT_RUN_ID` and `PILOT_CONTAINER_DIGEST`. It verifies the generation marker and all provenance/inventory hashes, refuses existing validation outputs, filters only that run's 12 candidates, and records prefilter survivors, target-only selections, 11-state construction and focused outputs in the same run directory. It stops normally with an explicit marker when no candidate survives either screen.
+
 ## Files changed or added
 
 - `README.md`

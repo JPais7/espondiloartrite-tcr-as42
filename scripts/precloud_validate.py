@@ -155,6 +155,28 @@ def main() -> int:
         text = (ROOT / script).read_text() if (ROOT / script).is_file() else ""
         require(text.startswith("#!/usr/bin/env bash\nset -euo pipefail"), f"{script} lacks strict shell mode")
 
+    generation_script = (ROOT / "cloud/run_generation.sh").read_text()
+    validation_script = (ROOT / "cloud/run_validation.sh").read_text()
+    require(": \"${PILOT_RUN_ID:?" in generation_script, "generation must require PILOT_RUN_ID")
+    require(": \"${PILOT_CONTAINER_DIGEST:?" in generation_script, "generation must require container digest")
+    require('run_dir="results/pilot/cloud/$PILOT_RUN_ID"' in generation_script,
+            "generation must use a per-run directory")
+    require('out_dir="$run_dir/rfd3"' in generation_script and 'out_directory "$run_dir/mpnn"' in generation_script,
+            "generation outputs must remain inside the per-run directory")
+    require("${#backbones[@]} -eq 4" in generation_script and "${#candidates[@]} -eq 12" in generation_script,
+            "generation count guards changed")
+    require(": \"${PILOT_RUN_ID:?" in validation_script and ": \"${PILOT_CONTAINER_DIGEST:?" in validation_script,
+            "validation must require run ID and container digest")
+    require('run_dir="results/pilot/cloud/$PILOT_RUN_ID"' in validation_script,
+            "validation must use the generation run directory")
+    require("--glob \"$run_dir/mpnn/*.cif\"" in validation_script,
+            "validation must use only the selected run's candidates")
+    require("${#selected[@]} -le 2" in validation_script and "${#selected[@]} * 11" in validation_script,
+            "validation focused caps changed")
+    require("seed=42019" in validation_script and "for seed in 42017 42018 42019" in validation_script,
+            "validation seeds changed")
+    require("rf3 fold" not in generation_script, "generation must not launch RF3")
+
     stage0 = (ROOT / "cloud/run_stage0.sh").read_text() if (ROOT / "cloud/run_stage0.sh").is_file() else ""
     require("diffusion_batch_size=1" in stage0 and "n_batches=1" in stage0,
             "Stage 0 must request exactly one backbone")
