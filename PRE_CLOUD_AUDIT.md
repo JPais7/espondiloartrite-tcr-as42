@@ -111,8 +111,8 @@ This command uses an already provisioned host; it does not itself create a RunPo
 
 ## Expected resources, runtime and cost
 
-- GPU: one NVIDIA A100 80 GB or H100 80 GB;
-- host RAM: at least 96 GB;
+- Stage 0 calibration: one NVIDIA GPU with at least 80 GB VRAM and at least 60 GiB RAM visible inside the container;
+- Stage 1–3 scientific pilot: one NVIDIA A100/H100-class GPU with at least 80 GB VRAM and at least 96 GiB host RAM;
 - free disk: at least 40 GB;
 - Stage 0 inference after image/checkpoint staging: approximately 10–45 minutes;
 - first-time image build, downloads and checks: an additional 30–60 minutes depending on network/cache.
@@ -124,14 +124,16 @@ Using the provider rates recorded in `CLOUD_RUN_PLAN.md`, Stage 0 inference is a
 Inspect all of the following under the new Stage 0 run directory:
 
 1. `STAGE0_COMPLETE.txt` exists and says PASS;
-2. `logs/rfd3.log` contains no traceback, fallback, OOM, retry or warning indicating changed chain/hotspot interpretation;
-3. `logs/output_validation.json` says PASS and reports exactly chains A/B/C and a 55–75 residue binder;
-4. `provenance/git_commit.txt` is the intended audit commit and `git_status.txt` is empty;
-5. `provenance/container_digest.txt`, `pip_freeze.txt` and `foundry_installed.txt` are complete and match the planned environment;
-6. `provenance/checkpoint_hashes.txt` reports all three files OK;
-7. `provenance/nvidia-smi-q.txt` shows the intended NVIDIA GPU/driver and no CPU/MPS fallback;
-8. `provenance/elapsed_seconds.txt` and `peak_gpu_memory_mib.txt` are plausible and within the selected GPU capacity;
-9. `output/` contains exactly one CIF.gz and one JSON and neither is copied into scientific ranking directories;
-10. the cloud instance has been stopped/terminated after copying these records.
+2. `provenance/resource_class.txt` is present; `CALIBRATION_ONLY` explicitly forbids Stage 1–3;
+3. `logs/rfd3.log` contains no traceback, fallback, OOM, retry or warning indicating changed chain/hotspot interpretation;
+4. `provenance/peak_host_memory_used_mib.txt`, `min_host_memory_available_mib.txt` and `peak_swap_used_mib.txt` are present and plausible; the log has no OOM signature;
+5. `logs/output_validation.json` says PASS and reports exactly chains A/B/C and a 55–75 residue binder;
+6. `provenance/git_commit.txt` is the intended audit commit and `git_status.txt` is empty;
+7. `provenance/container_digest.txt`, `pip_freeze.txt` and `foundry_installed.txt` are complete and match the planned environment;
+8. `provenance/checkpoint_hashes.txt` reports all three files OK;
+9. `provenance/nvidia-smi-q.txt` shows the intended NVIDIA GPU/driver and no CPU/MPS fallback;
+10. `provenance/elapsed_seconds.txt` and `peak_gpu_memory_mib.txt` are plausible and within the selected GPU capacity;
+11. `output/` contains exactly one CIF.gz and one JSON and neither is copied into scientific ranking directories;
+12. the cloud instance has been stopped/terminated after copying these records.
 
 Only a separate explicit human authorization may allow Stage 1. A Stage 0 PASS is a pipeline readiness result, not evidence of binding or selectivity.

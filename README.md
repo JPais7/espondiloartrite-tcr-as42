@@ -48,6 +48,8 @@ Outputs principais:
 
 ## Nota operacional: armazenamento e cloud
 
-O repositório, os inputs, os manifests e as análises leves permanecem locais. Não é necessário contratar armazenamento cloud permanente para o piloto. A execução autorizada deverá usar uma instância efémera com uma GPU NVIDIA A100/H100 de 80 GB, pelo menos 96 GB de RAM e 40 GB de disco livre, preservando apenas os resultados, logs, hashes e metadados de reprodução.
+O repositório, os inputs, os manifests e as análises leves permanecem locais. Não é necessário contratar armazenamento cloud permanente para o piloto. Um host com 64 GiB de RAM é permitido apenas para o Stage 0 de calibração, que exige pelo menos 60 GiB visíveis e é marcado `CALIBRATION_ONLY`; os Stage 1–3 mantêm a exigência de pelo menos 96 GiB de RAM, GPU NVIDIA ≥80 GB VRAM e 40 GB de disco livre.
+
+Esta distinção operacional não altera seeds, thresholds, candidate caps ou critérios GO/NO-GO.
 
 O Stage 0 é o único passo atualmente preparado para execução. Não existe transição automática para Stage 1: os seus logs e outputs têm de ser inspecionados por uma pessoa antes de qualquer nova autorização. GPUs deixadas ativas depois do teste continuam a ser o principal risco de custo.

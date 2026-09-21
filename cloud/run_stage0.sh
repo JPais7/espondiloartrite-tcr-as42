@@ -36,11 +36,30 @@ nvidia-smi -q > "$run_dir/provenance/nvidia-smi-q.txt"
 sha256sum config/*.json cloud/model_manifest.json cloud/environment.json \
   > "$run_dir/provenance/config_hashes.txt"
 
+memtotal_kib=$(awk '/^MemTotal:/ {print $2; exit}' /proc/meminfo)
+[[ "$memtotal_kib" =~ ^[0-9]+$ ]] || { echo "ERROR: could not read MemTotal" >&2; exit 6; }
+printf '%s\n' "$memtotal_kib" > "$run_dir/provenance/host_memory_total_kib.txt"
+cp /proc/meminfo "$run_dir/provenance/meminfo_before.txt"
+if (( memtotal_kib < 60 * 1024 * 1024 )); then
+  echo "ERROR: Stage 0 requires at least 60 GiB visible RAM" >&2
+  exit 6
+elif (( memtotal_kib < 96 * 1024 * 1024 )); then
+  printf '%s\n' "CALIBRATION_ONLY: host RAM is below the >=96 GiB requirement retained for Stage 1-3." \
+    > "$run_dir/provenance/resource_class.txt"
+else
+  printf '%s\n' "FULL_PILOT_RAM_CLASS: host RAM satisfies the >=96 GiB requirement retained for Stage 1-3." \
+    > "$run_dir/provenance/resource_class.txt"
+fi
+
 vram_log="$run_dir/logs/gpu_memory_mib.log"
+resource_log="$run_dir/logs/resource_memory.log"
 monitor_vram() {
   while true; do
-    printf '%s ' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$vram_log"
-    nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits >> "$vram_log"
+    timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    gpu_used_mib="$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | head -n 1 | tr -d ' ')"
+    mem_values="$(awk '/^MemTotal:/ {mt=$2} /^MemAvailable:/ {ma=$2} /^SwapTotal:/ {st=$2} /^SwapFree:/ {sf=$2} END {print mt, ma, st, sf}' /proc/meminfo)"
+    printf '%s %s\n' "$timestamp" "$gpu_used_mib" >> "$vram_log"
+    printf '%s %s %s %s %s %s\n' "$timestamp" $mem_values "$gpu_used_mib" >> "$resource_log"
     sleep 1
   done
 }
@@ -53,6 +72,7 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 start_epoch=$(date +%s)
+set +e
 rfd3 design \
   out_dir="$run_dir/output" \
   inputs=config/rfd3_pilot.json \
@@ -63,13 +83,37 @@ rfd3 design \
   inference_sampler.gamma_0=0.2 \
   dump_trajectories=false \
   2>&1 | tee "$run_dir/logs/rfd3.log"
+rfd3_pipeline_status=( "${PIPESTATUS[@]}" )
+set -e
+rfd3_status="${rfd3_pipeline_status[0]}"
+tee_status="${rfd3_pipeline_status[1]}"
 end_epoch=$(date +%s)
 
 cleanup
 trap - EXIT INT TERM
-python scripts/validate_stage0_output.py "$run_dir/output" | tee "$run_dir/logs/output_validation.json"
+cp /proc/meminfo "$run_dir/provenance/meminfo_after.txt"
 printf '%s\n' "$((end_epoch - start_epoch))" > "$run_dir/provenance/elapsed_seconds.txt"
-awk '{for(i=2;i<=NF;i++) if (($i+0)>max) max=$i+0} END {print max+0}' "$vram_log" \
+awk 'BEGIN {max=0} {if (($2+0)>max) max=$2+0} END {print max+0}' "$vram_log" \
   > "$run_dir/provenance/peak_gpu_memory_mib.txt"
+awk 'BEGIN {peak=0; min=-1; swap=0} {used=$2-$3; if (used>peak) peak=used; if (min<0 || $3<min) min=$3; swap_used=$4-$5; if (swap_used>swap) swap=swap_used} END {print peak+0}' "$resource_log" \
+  > "$run_dir/provenance/peak_host_memory_used_mib.txt"
+awk 'BEGIN {min=-1} {if (min<0 || $3<min) min=$3} END {print min+0}' "$resource_log" \
+  > "$run_dir/provenance/min_host_memory_available_mib.txt"
+awk 'BEGIN {swap=0} {swap_used=$4-$5; if (swap_used>swap) swap=swap_used} END {print swap+0}' "$resource_log" \
+  > "$run_dir/provenance/peak_swap_used_mib.txt"
+
+if grep -Eiq 'out of memory|CUDA[^\n]*out of memory|oom-kill|Killed process' "$run_dir/logs/rfd3.log"; then
+  echo "ERROR: RFD3 log contains an out-of-memory signature" >&2
+  exit 14
+fi
+if (( rfd3_status != 0 )); then
+  echo "ERROR: rfd3 design failed with exit code $rfd3_status" >&2
+  exit "$rfd3_status"
+fi
+if (( tee_status != 0 )); then
+  echo "ERROR: tee failed while recording the RFD3 log" >&2
+  exit "$tee_status"
+fi
+python scripts/validate_stage0_output.py "$run_dir/output" | tee "$run_dir/logs/output_validation.json"
 printf '%s\n' "PASS: Stage 0 completed. STOP. Human inspection and separate authorization are required before Stage 1." \
   | tee "$run_dir/STAGE0_COMPLETE.txt"

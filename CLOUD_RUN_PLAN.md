@@ -78,6 +78,8 @@ docker run --rm --gpus all --ipc=host \
 
 The checkpoint directory must contain the three files named in `cloud/checksums.sha256`. Stage 0 output is not a scientific candidate and must never enter ranking. A successful stop does not authorize Stage 1.
 
+Resource classes are deliberately separate: **Stage 0 calibration** requires an NVIDIA GPU with at least 80 GB VRAM and at least 60 GiB RAM visible inside the container. A host in the 60–96 GiB range is marked `CALIBRATION_ONLY` and cannot authorize Stage 1–3. The **Stage 1–3 scientific pilot** retains the requirement for an A100/H100-class NVIDIA GPU with at least 80 GB VRAM and at least 96 GiB RAM.
+
 ### Stage 1 — generation: 12 candidates maximum
 
 - Generate exactly **4 RFD3 backbones** in one batch, seed `42017`, binder length 55–75 residues.
@@ -145,12 +147,14 @@ No post-hoc metric substitution, threshold relaxation or selective omission of a
 
 ## GPU, storage, runtime and cost
 
-Recommended single-node minimum:
+Recommended single-node minimum for Stage 1–3:
 
 - 1 × NVIDIA A100 80 GB or H100 80 GB;
 - ≥96 GB host RAM;
 - ≥40 GB free persistent disk (checkpoints, container layers, inputs and outputs);
 - CUDA 12.8-compatible driver/runtime.
+
+Stage 0 calibration may use 60–96 GiB visible RAM, but must record `MemTotal`, `MemAvailable`, swap and GPU memory telemetry. A 64 GiB host is calibration-only.
 
 The 80 GB choice is conservative: it permits RFD3/RF3 batches without relying on unverified memory-saving changes. If Stage 0 shows peak VRAM below 45 GB, an L40S 48 GB may be tested, but it is not the preregistered execution target.
 
@@ -182,7 +186,7 @@ Budget ceiling for authorization should be **$40 compute plus $5 storage/egress 
 3. Verify every SHA-256 digest.
 4. Record `nvidia-smi`, container digest, package freeze and Git commit.
 5. Run Stage 0 only; record peak VRAM and elapsed time.
-6. Stop. Copy and inspect every Stage 0 provenance file, the full RFD3 log, output validation result, elapsed time and peak VRAM.
+6. Stop. Copy and inspect every Stage 0 provenance file, including RAM class, host-memory totals, peak host memory, minimum available memory, swap, peak VRAM, elapsed time, and the full RFD3 log for OOM signatures.
 7. Obtain separate explicit human authorization for Stage 1. Only then may `cloud/run_generation.sh` be run once.
 8. Apply the automatic filters; write `top2.txt` without manual candidate substitution.
 9. Run `cloud/run_validation.sh` once.

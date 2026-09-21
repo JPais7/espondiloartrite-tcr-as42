@@ -191,6 +191,17 @@ def main() -> int:
             "Stage 0 must request exactly one backbone")
     require(not re.search(r"\b(mpnn|rf3)\b|run_generation|run_validation", stage0),
             "Stage 0 must not invoke ProteinMPNN, RF3, or Stage 1 scripts")
+    require("MemTotal" in stage0 and "60 * 1024 * 1024" in stage0,
+            "Stage 0 must enforce the 60 GiB visible-RAM minimum")
+    require("resource_class.txt" in stage0 and "host_memory_total_kib.txt" in stage0,
+            "Stage 0 must record the RAM resource class and total")
+    require("meminfo_before.txt" in stage0 and "meminfo_after.txt" in stage0,
+            "Stage 0 must preserve before/after meminfo")
+    require("resource_memory.log" in stage0 and "peak_host_memory_used_mib.txt" in stage0 and
+            "min_host_memory_available_mib.txt" in stage0 and "peak_swap_used_mib.txt" in stage0,
+            "Stage 0 must record host memory/swap telemetry")
+    require("PIPESTATUS" in stage0 and "out of memory|CUDA" in stage0,
+            "Stage 0 must preserve RFD3 exit status and detect OOM signatures")
 
     if ERRORS:
         print(json.dumps({"status": "FAIL", "errors": ERRORS}, indent=2))
