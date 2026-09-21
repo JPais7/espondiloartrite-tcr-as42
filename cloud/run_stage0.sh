@@ -51,6 +51,14 @@ else
     > "$run_dir/provenance/resource_class.txt"
 fi
 
+gpu_memory_total_mib=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits | head -n 1 | tr -d ' ')
+[[ "$gpu_memory_total_mib" =~ ^[0-9]+$ ]] || { echo "ERROR: could not read total GPU memory" >&2; exit 6; }
+printf '%s\n' "$gpu_memory_total_mib" > "$run_dir/provenance/gpu_memory_total_mib.txt"
+if (( gpu_memory_total_mib < 80 * 1024 )); then
+  echo "ERROR: Stage 0 requires at least 80 GiB total GPU memory" >&2
+  exit 6
+fi
+
 vram_log="$run_dir/logs/gpu_memory_mib.log"
 resource_log="$run_dir/logs/resource_memory.log"
 monitor_vram() {
@@ -93,13 +101,15 @@ cleanup
 trap - EXIT INT TERM
 cp /proc/meminfo "$run_dir/provenance/meminfo_after.txt"
 printf '%s\n' "$((end_epoch - start_epoch))" > "$run_dir/provenance/elapsed_seconds.txt"
+[[ -s "$vram_log" ]] || { echo "ERROR: GPU telemetry log is missing or empty" >&2; exit 15; }
+[[ -s "$resource_log" ]] || { echo "ERROR: host resource telemetry log is missing or empty" >&2; exit 15; }
 awk 'BEGIN {max=0} {if (($2+0)>max) max=$2+0} END {print max+0}' "$vram_log" \
   > "$run_dir/provenance/peak_gpu_memory_mib.txt"
-awk 'BEGIN {peak=0; min=-1; swap=0} {used=$2-$3; if (used>peak) peak=used; if (min<0 || $3<min) min=$3; swap_used=$4-$5; if (swap_used>swap) swap=swap_used} END {print peak+0}' "$resource_log" \
+awk 'BEGIN {peak=0} {used=($2-$3)/1024; if (used>peak) peak=used} END {printf "%.0f\n", peak}' "$resource_log" \
   > "$run_dir/provenance/peak_host_memory_used_mib.txt"
-awk 'BEGIN {min=-1} {if (min<0 || $3<min) min=$3} END {print min+0}' "$resource_log" \
+awk 'BEGIN {min=-1} {if (min<0 || $3<min) min=$3} END {printf "%.0f\n", min/1024}' "$resource_log" \
   > "$run_dir/provenance/min_host_memory_available_mib.txt"
-awk 'BEGIN {swap=0} {swap_used=$4-$5; if (swap_used>swap) swap=swap_used} END {print swap+0}' "$resource_log" \
+awk 'BEGIN {swap=0} {swap_used=($4-$5)/1024; if (swap_used>swap) swap=swap_used} END {printf "%.0f\n", swap}' "$resource_log" \
   > "$run_dir/provenance/peak_swap_used_mib.txt"
 
 if grep -Eiq 'out of memory|CUDA[^\n]*out of memory|oom-kill|Killed process' "$run_dir/logs/rfd3.log"; then

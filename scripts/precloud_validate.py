@@ -200,6 +200,12 @@ def main() -> int:
     require("resource_memory.log" in stage0 and "peak_host_memory_used_mib.txt" in stage0 and
             "min_host_memory_available_mib.txt" in stage0 and "peak_swap_used_mib.txt" in stage0,
             "Stage 0 must record host memory/swap telemetry")
+    require("gpu_memory_total_mib.txt" in stage0 and "80 * 1024" in stage0,
+            "Stage 0 must enforce and record the 80 GiB GPU minimum")
+    require("-s \"$vram_log\"" in stage0 and "-s \"$resource_log\"" in stage0,
+            "Stage 0 must require non-empty telemetry logs")
+    require("/1024" in stage0,
+            "Stage 0 MiB telemetry must convert /proc/meminfo KiB values")
     require("PIPESTATUS" in stage0 and "out of memory|CUDA" in stage0,
             "Stage 0 must preserve RFD3 exit status and detect OOM signatures")
 
